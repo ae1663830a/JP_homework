@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 const style = {height: '70px'};
+const buttonStyle = {
+    width: '22%', height: '45px', backgroundColor: 'darkGreen',
+    color: 'white', borderRadius: '10px', border: '3px solid #333', margin: '10px'
+};
 
 const Besisukantis = (props) => {
     return <img src={logo}
@@ -74,7 +78,7 @@ class App extends Component {
                             {this.state.value}<br/>
                             Enter name:
                             <input type="text" value={this.state.value} onChange={this.handleChange}/><br/>
-                            <input type="submit" value="Submit"/>
+                            <input type="submit" value="Submit" style={buttonStyle}/>
                         </form>
                     </p>
                 </p>
