@@ -6,7 +6,7 @@ const style = {width: '100px'};
 
 const Besisukantis = (props) => {
     return <img src={logo}
-                className={props.className}
+                className={props.className1}
                 onMouseOver={props.mouseIn}
                 onMouseOut={props.mouseOut}
                 style={style} alt="logo"/>
@@ -25,7 +25,7 @@ class AppStateless extends Component {
                 <header className="App-header">
                     <div>
                         <Besisukantis
-                            className={'App-logo'}
+                            className1={'App-logo'}
                             mouseIn={() => console.log('rrr')}
                             /*mouseOut={() => {className = 'App-logo'}} *//>
                     </div>
