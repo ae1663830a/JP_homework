@@ -13,12 +13,16 @@ class App extends Component {
         value: ''
     };
 
-    increaseClick = () => this.setState({
-        count: this.state.count + 1
+    increaseClick = () => this.setState(prevState => {
+        return {
+            count: prevState.count + 1
+        }
     });
 
-    decreaseClick = () => this.setState({
-        count: this.state.count - 1
+    decreaseClick = () => this.setState(prevState => {
+        return {
+            count: prevState.count - 1
+        }
     });
 
     spin = (className) => this.setState({
