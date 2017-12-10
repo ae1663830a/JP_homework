@@ -3,7 +3,6 @@ import './App.css';
 import ProductList from '../components/ProductList'
 import phone from '../assets/phone.jpg'
 import PropTypes from 'prop-types'
-//import ProductNames from '../components/ProductNames'
 
 class App extends Component {
 
@@ -11,9 +10,9 @@ class App extends Component {
         productList: [
             {id: '1', title: 'Phone', description: 'new phone', price: '20', image: phone},
             {id: '2', title: 'iPhone', description: 'new phone', price: '20', image: phone},
-            {id: '3', title: 'Samsung', description: 'new phone', price: '20', image: phone},
+            {id: '3', title: 'Samsung', description: 'old phone', price: '20', image: phone},
             {id: '4', title: 'Old', description: 'new phone', price: '20', image: phone},
-            {id: '5', title: 'New', description: 'new phone', price: '20', image: phone},
+            {id: '5', title: 'Samsung', description: 'new phone', price: '20', image: phone},
             {id: '6', title: 'SE', description: 'new phone', price: '20', image: phone},
             {id: '7', title: 'CAT', description: 'new phone', price: '20', image: phone},
             {id: '8', title: 'Sony', description: 'new phone', price: '20', image: phone}
@@ -45,6 +44,20 @@ class App extends Component {
         console.log(fff.title, fff.price)
     };
 
+    titles = () => {
+        const titleName = this.state.productList.reduce((sum, amTitle) => {
+            return sum + ', ' + amTitle.title;
+
+        });
+    console.log(titleName)
+    };
+
+    ifSamsung = () => {
+        const sumsungPhones =
+            this.state.productList.filter(phone => phone.title === 'Samsung').map(phone => phone.description);
+        console.log(sumsungPhones)
+    };
+
     //
     //
     // changeAge = (event, id) => {
@@ -69,7 +82,7 @@ class App extends Component {
             <ProductList
                 productList={this.state.productList}
                 key={this.state.productList.id}
-                clicked={this.titlePrice}
+                clicked={this.ifSamsung}
             />
             </div>
         );
