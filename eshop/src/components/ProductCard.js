@@ -17,14 +17,15 @@ const style = {
 
 const productCard = (props) => {
     return (
-        <div className="col-xs-12 col-sm-4 col-md-2">
+        <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
             <div className="thumbnail" style={style.thumbnail}>
                 <img src={props.image} style={style.imageCss} alt="..."/>
                 <div className="caption">
+                    <h3>{props.title}</h3>
                     <p>{props.description}</p>
                     <p>{props.price} &euro;</p>
                     <p>
-                        <button className="btn btn-danger" role="button">Details</button>
+                        <button className="btn btn-danger" role="button" onClick={props.click}>Details</button>
                     </p>
                 </div>
             </div>
