@@ -66,19 +66,19 @@ class Product extends Component {
     };
 
     render() {
-        return(
+        return (
             <NewProduct
-            title={this.state.title}
-            changeTitle={this.titleChange}
-            image={this.state.image}
-            changeImage={this.imageChange}
-            description={this.state.description}
-            changeDescription={this.descriptionChange}
-            price={this.state.price}
-            changePrice={this.priceChange}
-            quantity={this.state.quantity}
-            changeQuantity={this.quantityChange}
-            submitData={this.saveData}
+                title={this.state.title}
+                changeTitle={this.titleChange}
+                image={this.state.image}
+                changeImage={this.imageChange}
+                description={this.state.description}
+                changeDescription={this.descriptionChange}
+                price={this.state.price}
+                changePrice={this.priceChange}
+                quantity={this.state.quantity}
+                changeQuantity={this.quantityChange}
+                submitData={this.saveData}
             />
         )
     }

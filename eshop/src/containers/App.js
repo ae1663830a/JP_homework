@@ -3,15 +3,18 @@ import './App.css';
 import ProductList from '../components/ProductList'
 import phone from '../assets/phone.jpg'
 import PropTypes from 'prop-types'
+import ProductTitle from '../components/Filter/ProductTitleAndPrice'
+import ProductFilterPrice from '../components/Filter/ProductFilterPrice'
+import ProductCartSum from '../components/Filter/ProductCartSum'
 
 class App extends Component {
 
     static propTypes = {
-            id: PropTypes.number.isRequired,
-            title: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            price: PropTypes.number.isRequired,
-            image: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired
     };
 
     static defaultProps = {
@@ -24,14 +27,14 @@ class App extends Component {
 
     state = {
         productList: [
-            {id: '1', title: 'Phone', description: 'new phone', price: '20', image: phone},
-            {id: '2', title: 'iPhone', description: 'new phone', price: '20', image: phone},
-            {id: '3', title: 'Samsung', description: 'old phone', price: '20', image: phone},
+            {id: '1', title: 'Phone', description: 'new phone', price: '2', image: phone},
+            {id: '2', title: 'iPhone', description: 'new phone', price: '5', image: phone},
+            {id: '3', title: 'Samsung', description: 'old phone', price: '7', image: phone},
             {id: '4', title: 'Old', description: 'new phone', price: '20', image: phone},
-            {id: '5', title: 'Samsung', description: 'new phone', price: '20', image: phone},
-            {id: '6', title: 'SE', description: 'new phone', price: '20', image: phone},
-            {id: '7', title: 'CAT', description: 'new phone', price: '20', image: phone},
-            {id: '8', title: 'Sony', description: 'new phone', price: '20', image: phone}
+            {id: '5', title: 'Samsung', description: 'new phone', price: '14', image: phone},
+            {id: '6', title: 'SE', description: 'new phone', price: '35', image: phone},
+            {id: '7', title: 'CAT', description: 'new phone', price: '56', image: phone},
+            {id: '8', title: 'Sony', description: 'new phone', price: '3', image: phone}
         ]
     };
 
@@ -62,13 +65,36 @@ class App extends Component {
         console.log(sumsungPhones)
     };
 
+    goProducts = () => this.props.router.push('products');
+
     render() {
 
         return (<div>
+
+                <p>
+                    <button onClick={this.goProducts}
+                            className="btn btn-primary"
+                            role="button">
+                        Go to products
+                    </button>
+                </p>
+
                 <ProductList
                     productList={this.state.productList}
                     key={this.state.productList.id}
                     clicked={this.ifSamsung}
+                />
+                <ProductTitle
+                    productList={this.state.productList}/>
+
+                <ProductFilterPrice
+                    productList={this.state.productList}
+                    key={this.state.productList.id}
+                    clicked={this.ifSamsung}
+                />
+
+                <ProductCartSum
+                    productList={this.state.productList}
                 />
             </div>
         );
