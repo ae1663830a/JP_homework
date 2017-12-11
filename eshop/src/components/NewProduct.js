@@ -8,7 +8,7 @@ const newProduct = (props) => {
                     <label>Title</label>
                     <input type="text"
                            className="form-control"
-                           placeholder="Title"
+                           placeholder="Product title"
                            value={props.title}
                            onChange={props.changeTitle}/>
                 </div>
@@ -16,6 +16,7 @@ const newProduct = (props) => {
                     <label>Image Url</label>
                     <input type="text"
                            className="form-control"
+                           placeholder="Product image URL"
                            value={props.image}
                            onChange={props.changeImage}/>
                 </div>
@@ -23,6 +24,7 @@ const newProduct = (props) => {
                     <label>Description</label>
                     <input type="text"
                            className="form-control"
+                           placeholder="Product description"
                            value={props.description}
                            onChange={props.changeDescription}/>
                 </div>
@@ -30,6 +32,7 @@ const newProduct = (props) => {
                     <label>Price</label>
                     <input type="text"
                            className="form-control"
+                           placeholder="Product price"
                            value={props.price}
                            onChange={props.changePrice}/>
                 </div>
@@ -37,6 +40,7 @@ const newProduct = (props) => {
                     <label>Quantity</label>
                     <input type="text"
                            className="form-control"
+                           placeholder="Product quantity"
                            value={props.quantity}
                            onChange={props.changeQuantity}/>
                 </div>

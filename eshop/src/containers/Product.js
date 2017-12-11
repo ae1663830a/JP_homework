@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import NewProduct from './NewProduct'
+import NewProduct from '../components/NewProduct'
+import PropTypes from 'prop-types'
 
 class Product extends Component {
     state = {
@@ -9,6 +10,24 @@ class Product extends Component {
         price: '',
         image: '',
         quantity: ''
+    };
+
+    static propTypes = {
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        quantity: PropTypes.number.isRequired
+    };
+
+    static defaultProps = {
+        id: 0,
+        title: 'Undefined',
+        description: 'Undefined',
+        price: 0,
+        image: 'Undefined',
+        quantity: 0
     };
 
     titleChange = (event) => {
@@ -45,7 +64,6 @@ class Product extends Component {
         console.log(this.state);
         event.preventDefault()
     };
-
 
     render() {
         return(
