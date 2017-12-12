@@ -13,7 +13,7 @@ const InitialApp = (props) => {
     </div>
 };
 
-const NoMatch = (props) => {
+const NoMatch = () => {
     return <div>
         Route did not match
     </div>

@@ -27,14 +27,14 @@ class App extends Component {
 
     state = {
         productList: [
-            {id: '1', title: 'Phone', description: 'new phone', price: '2', image: phone},
-            {id: '2', title: 'iPhone', description: 'new phone', price: '5', image: phone},
-            {id: '3', title: 'Samsung', description: 'old phone', price: '7', image: phone},
-            {id: '4', title: 'Old', description: 'new phone', price: '20', image: phone},
-            {id: '5', title: 'Samsung', description: 'new phone', price: '14', image: phone},
-            {id: '6', title: 'SE', description: 'new phone', price: '35', image: phone},
-            {id: '7', title: 'CAT', description: 'new phone', price: '56', image: phone},
-            {id: '8', title: 'Sony', description: 'new phone', price: '3', image: phone}
+            {id: '1', title: 'Phone', description: 'new phone', price: 3, image: phone},
+            {id: '2', title: 'iPhone', description: 'new phone', price: 6, image: phone},
+            {id: '3', title: 'Samsung', description: 'old phone', price: 5, image: phone},
+            {id: '4', title: 'Old', description: 'new phone', price: 4, image: phone},
+            {id: '5', title: 'Samsung', description: 'new phone', price: 12, image: phone},
+            {id: '6', title: 'SE', description: 'new phone', price: 34, image: phone},
+            {id: '7', title: 'CAT', description: 'new phone', price: 21, image: phone},
+            {id: '8', title: 'Sony', description: 'new phone', price: 12, image: phone}
         ]
     };
 
@@ -82,7 +82,7 @@ class App extends Component {
                 <ProductList
                     productList={this.state.productList}
                     key={this.state.productList.id}
-                    clicked={this.ifSamsung}
+                    clicked={this.deleteProduct}
                 />
                 <ProductTitle
                     productList={this.state.productList}/>
