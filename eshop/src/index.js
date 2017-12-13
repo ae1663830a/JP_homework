@@ -6,6 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import Product from './containers/Product'
 import {Router, Route, IndexRoute, hashHistory} from 'react-router'
+import axios from 'axios'
+
+
+axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api';
 
 const InitialApp = (props) => {
     return <div>

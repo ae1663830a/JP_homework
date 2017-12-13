@@ -7,6 +7,7 @@ import ProductTitle from '../components/Filter/ProductTitleAndPrice'
 import ProductFilterPrice from '../components/Filter/ProductFilterPrice'
 import ProductCartSum from '../components/Filter/ProductCartSum'
 import axios from 'axios'
+import Navbar from '../components/Navbar'
 
 class App extends Component {
 
@@ -67,9 +68,10 @@ class App extends Component {
     };
 
     goProducts = () => this.props.router.push('createproduct');
+    goProducts1 = () => this.props.router.push('/');
 
     componentDidMount() {
-        axios.get('https://itpro2017.herokuapp.com/api/products')
+        axios.get('/products/')
             .then(response => {
                 const products = response.data.slice(0, 20);
                 // const updatedProducts = products.map(product => {
@@ -84,7 +86,7 @@ class App extends Component {
     }
 
     deleteProduct1 = (index) => {
-        axios.delete('https://itpro2017.herokuapp.com/api/products/' + index)
+        axios.delete('/products/' + this.state.productList[index].id)
             .then(response => {
                 console.log(response)
             })
@@ -94,14 +96,10 @@ class App extends Component {
 
         return (
             <div>
-                <p>
-                    <button onClick={this.goProducts}
-                            className="btn btn-primary"
-                            role="button">
-                        Go to products
-                    </button>
-                </p>
-
+                <Navbar
+                    create={this.goProducts}
+                    home={this.goProducts1}
+                />
                 <ProductList
                     productList={this.state.productList}
                     key={this.state.productList.id}

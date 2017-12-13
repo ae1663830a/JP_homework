@@ -43,7 +43,8 @@ const newProduct = (props) => {
                            className="form-control"
                            placeholder="Product quantity"
                            value={props.quantity}
-                           onChange={props.changeQuantity}/>
+                           onChange={props.changeQuantity}
+                    />
                 </div>
                 <input type="submit" className="btn btn-success" value="Submit"/>
             </form>

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import NewProduct from '../components/NewProduct'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import Navbar from '../components/Navbar'
 
 class Product extends Component {
     state = {
@@ -71,19 +72,22 @@ class Product extends Component {
 
     render() {
         return (
-            <NewProduct
-                title={this.state.title}
-                changeTitle={this.titleChange}
-                image={this.state.image}
-                changeImage={this.imageChange}
-                description={this.state.description}
-                changeDescription={this.descriptionChange}
-                price={this.state.price}
-                changePrice={this.priceChange}
-                quantity={this.state.quantity}
-                changeQuantity={this.quantityChange}
-                submitData={this.addProduct}
-            />
+            <div>
+                <Navbar/>
+                <NewProduct
+                    title={this.state.title}
+                    changeTitle={this.titleChange}
+                    image={this.state.image}
+                    changeImage={this.imageChange}
+                    description={this.state.description}
+                    changeDescription={this.descriptionChange}
+                    price={this.state.price}
+                    changePrice={this.priceChange}
+                    quantity={this.state.quantity}
+                    changeQuantity={this.quantityChange}
+                    submitData={this.addProduct}
+                />
+            </div>
         )
     }
 }
