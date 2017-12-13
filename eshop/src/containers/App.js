@@ -65,7 +65,7 @@ class App extends Component {
         console.log(sumsungPhones)
     };
 
-    goProducts = () => this.props.router.push('products');
+    goProducts = () => this.props.router.push('createproduct');
 
     render() {
 
