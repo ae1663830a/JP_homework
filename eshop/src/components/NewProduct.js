@@ -3,12 +3,13 @@ import React from 'react'
 const newProduct = (props) => {
     return (
         <div>
-            <form onSubmit={props.submitData}>
+            <form onSubmit={props.submitData} action="https://itpro2017.herokuapp.com/api/products" method="post">
                 <div className="form-group">
                     <label>Title</label>
                     <input type="text"
                            className="form-control"
                            placeholder="Product title"
+                           key={props.id}
                            value={props.title}
                            onChange={props.changeTitle}/>
                 </div>

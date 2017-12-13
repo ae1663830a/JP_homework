@@ -60,9 +60,9 @@ class Product extends Component {
         })
     };
 
-    saveData = (event) => {
+    saveData = () => {
         console.log(this.state);
-        event.preventDefault()
+        // event.post('https://itpro2017.herokuapp.com/api/products')
     };
 
     render() {

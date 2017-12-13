@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import ProductTitle from '../components/Filter/ProductTitleAndPrice'
 import ProductFilterPrice from '../components/Filter/ProductFilterPrice'
 import ProductCartSum from '../components/Filter/ProductCartSum'
+import axios from 'axios'
 
 class App extends Component {
 
@@ -27,14 +28,14 @@ class App extends Component {
 
     state = {
         productList: [
-            {id: '1', title: 'Phone', description: 'new phone', price: 3, image: phone},
-            {id: '2', title: 'iPhone', description: 'new phone', price: 6, image: phone},
-            {id: '3', title: 'Samsung', description: 'old phone', price: 5, image: phone},
-            {id: '4', title: 'Old', description: 'new phone', price: 4, image: phone},
-            {id: '5', title: 'Samsung', description: 'new phone', price: 12, image: phone},
-            {id: '6', title: 'SE', description: 'new phone', price: 34, image: phone},
-            {id: '7', title: 'CAT', description: 'new phone', price: 21, image: phone},
-            {id: '8', title: 'Sony', description: 'new phone', price: 12, image: phone}
+            {id: 1, title: 'Phone', description: 'new phone', price: 3, image: phone},
+            {id: 2, title: 'iPhone', description: 'new phone', price: 6, image: phone},
+            {id: 3, title: 'Samsung', description: 'old phone', price: 5, image: phone},
+            {id: 4, title: 'Old', description: 'new phone', price: 4, image: phone},
+            {id: 5, title: 'Samsung', description: 'new phone', price: 12, image: phone},
+            {id: 6, title: 'SE', description: 'new phone', price: 34, image: phone},
+            {id: 7, title: 'CAT', description: 'new phone', price: 21, image: phone},
+            {id: 8, title: 'Sony', description: 'new phone', price: 12, image: phone}
         ]
     };
 
@@ -47,30 +48,45 @@ class App extends Component {
     };
 
     titlePrice = (index) => {
-        const fff = this.state.productList[index];
-        console.log(fff.title, fff.price)
+        const product = this.state.productList[index];
+        console.log(product.title, product.price)
     };
 
     titles = () => {
         const titleName = this.state.productList.reduce((sum, amTitle) => {
             return sum + ', ' + amTitle.title;
-
         });
         console.log(titleName)
     };
 
     ifSamsung = () => {
-        const sumsungPhones =
-            this.state.productList.filter(phone => phone.title === 'Samsung').map(phone => phone.description);
+        const sumsungPhones = this.state.productList
+            .filter(phone => phone.title === 'Samsung')
+            .map(phone => phone.description);
         console.log(sumsungPhones)
     };
 
     goProducts = () => this.props.router.push('createproduct');
 
+    componentDidMount() {
+        axios.get('https://itpro2017.herokuapp.com/api/products')
+            .then(response => {
+                const products = response.data.slice(0, 20);
+                const updatedProducts = products.map(product => {
+                    return {
+                        ...product, image: phone
+                    }
+                });
+                this.setState({
+                    productList: updatedProducts
+                })
+            })
+    }
+
     render() {
 
-        return (<div>
-
+        return (
+            <div>
                 <p>
                     <button onClick={this.goProducts}
                             className="btn btn-primary"
@@ -82,10 +98,11 @@ class App extends Component {
                 <ProductList
                     productList={this.state.productList}
                     key={this.state.productList.id}
-                    clicked={this.deleteProduct}
-                />
+                    clicked={this.deleteProduct}/>
+
                 <ProductTitle
-                    productList={this.state.productList}/>
+                    productList={this.state.productList}
+                    key={this.state.productList.id}/>
 
                 <ProductFilterPrice
                     productList={this.state.productList}

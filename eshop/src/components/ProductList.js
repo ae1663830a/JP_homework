@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 
-const productList = (props, index) => {
+const productList = (props) => {
     const products = props.productList;
     const listItems = products.map((productCard, index) =>
         <ProductCard
