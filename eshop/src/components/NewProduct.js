@@ -3,7 +3,7 @@ import React from 'react'
 const newProduct = (props) => {
     return (
         <div>
-            <form onSubmit={props.submitData} action="https://itpro2017.herokuapp.com/api/products" method="post">
+            <form onSubmit={props.submitData}>
                 <div className="form-group">
                     <label>Title</label>
                     <input type="text"

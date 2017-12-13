@@ -72,16 +72,23 @@ class App extends Component {
         axios.get('https://itpro2017.herokuapp.com/api/products')
             .then(response => {
                 const products = response.data.slice(0, 20);
-                const updatedProducts = products.map(product => {
-                    return {
-                        ...product, image: phone
-                    }
-                });
+                // const updatedProducts = products.map(product => {
+                //     return {
+                //         ...product, image: phone
+                //     }
+                // });
                 this.setState({
-                    productList: updatedProducts
+                    productList: products
                 })
             })
     }
+
+    deleteProduct1 = (index) => {
+        axios.delete('https://itpro2017.herokuapp.com/api/products/' + index)
+            .then(response => {
+                console.log(response)
+            })
+    };
 
     render() {
 
@@ -98,7 +105,7 @@ class App extends Component {
                 <ProductList
                     productList={this.state.productList}
                     key={this.state.productList.id}
-                    clicked={this.deleteProduct}/>
+                    clicked={this.deleteProduct1}/>
 
                 <ProductTitle
                     productList={this.state.productList}

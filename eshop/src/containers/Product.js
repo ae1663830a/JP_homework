@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NewProduct from '../components/NewProduct'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 
 class Product extends Component {
     state = {
@@ -60,9 +61,12 @@ class Product extends Component {
         })
     };
 
-    saveData = () => {
-        console.log(this.state);
-        // event.post('https://itpro2017.herokuapp.com/api/products')
+    addProduct = () => {
+        const product = this.state;
+        axios.post('https://itpro2017.herokuapp.com/api/products', product)
+            .then(response => {
+                console.log(response)
+            })
     };
 
     render() {
@@ -78,7 +82,7 @@ class Product extends Component {
                 changePrice={this.priceChange}
                 quantity={this.state.quantity}
                 changeQuantity={this.quantityChange}
-                submitData={this.saveData}
+                submitData={this.addProduct}
             />
         )
     }
