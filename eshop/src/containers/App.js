@@ -29,14 +29,14 @@ class App extends Component {
 
     state = {
         productList: [
-            {id: 1, title: 'Phone', description: 'new phone', price: 3, image: phone},
-            {id: 2, title: 'iPhone', description: 'new phone', price: 6, image: phone},
-            {id: 3, title: 'Samsung', description: 'old phone', price: 5, image: phone},
-            {id: 4, title: 'Old', description: 'new phone', price: 4, image: phone},
-            {id: 5, title: 'Samsung', description: 'new phone', price: 12, image: phone},
-            {id: 6, title: 'SE', description: 'new phone', price: 34, image: phone},
-            {id: 7, title: 'CAT', description: 'new phone', price: 21, image: phone},
-            {id: 8, title: 'Sony', description: 'new phone', price: 12, image: phone}
+            // {id: 1, title: 'Phone', description: 'new phone', price: 3, image: phone},
+            // {id: 2, title: 'iPhone', description: 'new phone', price: 6, image: phone},
+            // {id: 3, title: 'Samsung', description: 'old phone', price: 5, image: phone},
+            // {id: 4, title: 'Old', description: 'new phone', price: 4, image: phone},
+            // {id: 5, title: 'Samsung', description: 'new phone', price: 12, image: phone},
+            // {id: 6, title: 'SE', description: 'new phone', price: 34, image: phone},
+            // {id: 7, title: 'CAT', description: 'new phone', price: 21, image: phone},
+            // {id: 8, title: 'Sony', description: 'new phone', price: 12, image: phone}
         ]
     };
 
@@ -67,10 +67,11 @@ class App extends Component {
         console.log(sumsungPhones)
     };
 
-    goProducts = () => this.props.router.push('createproduct');
-    goProducts1 = () => this.props.router.push('/');
+    adminProducts = () => this.props.router.push('createproduct');
+    listProducts = () => this.props.router.push('products');
 
     componentDidMount() {
+        console.log(this.props);
         axios.get('/products/')
             .then(response => {
                 const products = response.data.slice(0, 20);
@@ -97,8 +98,8 @@ class App extends Component {
         return (
             <div>
                 <Navbar
-                    create={this.goProducts}
-                    home={this.goProducts1}
+                    create={this.adminProducts}
+                    home={this.listProducts}
                 />
                 <ProductList
                     productList={this.state.productList}
@@ -113,6 +114,7 @@ class App extends Component {
                     productList={this.state.productList}
                     key={this.state.productList.id}
                     clicked={this.ifSamsung}
+
                 />
 
                 <ProductCartSum

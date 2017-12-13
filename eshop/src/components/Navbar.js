@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router'
 
 const navbar = (props) => {
     return (
@@ -6,12 +7,12 @@ const navbar = (props) => {
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <ul className="nav navbar-nav">
-                        <li className="active" onClick={props.home}><a href="#">Home</a></li>
-                        <li><a onClick={props.create}>Admin</a></li>
+                        <li className="active" ><Link onClick={props.home}>Home</Link></li>
+                        <li><Link onClick={props.create}>Admin</Link></li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#"><span className="glyphicon glyphicon-shopping-cart"> Items</span></a>
+                            <Link href="#"><span className="glyphicon glyphicon-shopping-cart"> Items</span></Link>
                         </li>
                     </ul>
                     <form className="navbar-form navbar-left">

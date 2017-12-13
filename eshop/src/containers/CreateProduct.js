@@ -70,10 +70,14 @@ class Product extends Component {
             })
     };
 
+    listProducts = () => this.props.router.push('products');
+
     render() {
         return (
             <div>
-                <Navbar/>
+                <Navbar
+                home={this.listProducts}
+                />
                 <NewProduct
                     title={this.state.title}
                     changeTitle={this.titleChange}

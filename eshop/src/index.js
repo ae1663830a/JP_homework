@@ -4,7 +4,7 @@ import './index.css';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
-import Product from './containers/Product'
+import CreateProduct from './containers/CreateProduct'
 import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 import axios from 'axios'
 
@@ -40,7 +40,8 @@ ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={InitialApp}>
             <IndexRoute component={App}/>
-            <Route path="/createproduct" component={Product}/>
+            <Route path="/createproduct" component={CreateProduct}/>
+            <Route path="/products" component={App}/>
             <Route path="/createproduct/:id" component={DemonstruotiNavigacija}/>
             <Route path="/help" component={DemonstruotiNavigacija}/>
             <Route path="*" component={NoMatch}/>
