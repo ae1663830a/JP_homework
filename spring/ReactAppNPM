@@ -1,0 +1,60 @@
+apt-get install nodejs-legacy npm // install nodejs
+npm install -g create-react-app // letting us to install react app which we could access globaly
+create-react-app hello-world // creating react app
+add to package.json dependency "bootstrap": "3.3.7"
+add to package.json dependency "react-router": "^3.0.0"
+npm install // 
+npm run build
+npm start
+
+npm install axios --save
+
+git config user.email "a.orsevskij@gmail.com"
+git config user.name "Andrej Orševskij"
+
+bean example
+// 7-25
+
+
+
+
+// spring boot projekto sukurimas
+mvn archetype:generate -DgroupId=it.akademija -DartifactId=eshop -DarchetypeGroupId=am.ik.archetype -DarchetypeArtifactId=spring-boot-blank-archetype -DarchetypeVersion=1.0.6 -DinteractiveMode=false
+
+mvn idea:idea
+
+mvn clean install
+mvn test
+
+
+mvn spring-boot:run -Drun.jvmArguments='-Dserver.port=8081'
+
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-tomcat</artifactId>
+<scope>provided</scope>
+</dependency>
+
+
+@SpringBootApplication
+public class App extends SpringBootServletInitializer {
+  public static void main(String[] args) {
+SpringApplication.run(App.class, args);
+  }
+@Override 
+protected SpringApplicationBuilder configure(
+SpringApplicationBuilder builder) {
+return builder.sources(
+App.class);
+  }
+}
+
+mvn org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:run-war -Dmaven.tomcat.port=8081 -DskipTests
+
+
+
+
+
+
+
