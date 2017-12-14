@@ -72,7 +72,7 @@ class App extends Component {
 
     componentDidMount() {
         console.log(this.props);
-        axios.get('/products/')
+        axios.get('/productsCollection/')
             .then(response => {
                 const products = response.data.slice(0, 20);
                 // const updatedProducts = products.map(product => {
@@ -87,7 +87,7 @@ class App extends Component {
     }
 
     deleteProduct1 = (index) => {
-        axios.delete('/products/' + this.state.productList[index].id)
+        axios.delete('/productsCollection/' + this.state.productList[index].id)
             .then(response => {
                 console.log(response)
             })

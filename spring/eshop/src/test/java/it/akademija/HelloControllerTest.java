@@ -28,11 +28,11 @@ public class HelloControllerTest {
         RestAssured.port = port;
     }
 
-//    @Test
-//    public void testHello() throws Exception {
-//        when().get("/").then()
-//                .body(is("Hello World!"));
-//    }
+    @Test
+    public void testHello() throws Exception {
+        when().get("/hello").then()
+                .body(is("Hello World!"));
+    }
 
     @Test
     public void testCalc() throws Exception {

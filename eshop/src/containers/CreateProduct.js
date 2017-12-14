@@ -64,7 +64,7 @@ class Product extends Component {
 
     addProduct = () => {
         const product = this.state;
-        axios.post('https://itpro2017.herokuapp.com/api/products', product)
+        axios.post('/productsCollection/', product)
             .then(response => {
                 console.log(response)
             })

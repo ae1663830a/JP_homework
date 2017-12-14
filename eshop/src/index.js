@@ -9,7 +9,7 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 import axios from 'axios'
 
 
-axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api';
+// axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api';
 
 const InitialApp = (props) => {
     return <div>
