@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './containers/App';
+import ProductListClass from './containers/ProductListClass';
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import CreateProduct from './containers/CreateProduct'
 import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 import axios from 'axios'
+import ProductDetails from './containers/ProductDetailsContainer'
 
-
-// axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api';
+axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api/';
 
 const InitialApp = (props) => {
     return <div>
@@ -39,14 +39,15 @@ const DemonstruotiNavigacija = (props) => {
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={InitialApp}>
-            <IndexRoute component={App}/>
+            <IndexRoute component={ProductListClass}/>
             <Route path="/createproduct" component={CreateProduct}/>
-            <Route path="/products" component={App}/>
+            <Route path="/products" component={ProductListClass}/>
+            <Route path="/products/:id" component={ProductDetails}/>
             <Route path="/createproduct/:id" component={DemonstruotiNavigacija}/>
             <Route path="/help" component={DemonstruotiNavigacija}/>
             <Route path="*" component={NoMatch}/>
         </Route>
     </Router>
 ), document.getElementById('root'));
-// ReactDOM.render(<App/>, document.getElementById('root'));
+// ReactDOM.render(<ProductListClass/>, document.getElementById('root'));
 registerServiceWorker();

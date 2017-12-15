@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
 import ProductList from '../components/ProductList'
-import phone from '../assets/phone.jpg'
 import PropTypes from 'prop-types'
 import ProductTitle from '../components/Filter/ProductTitleAndPrice'
 import ProductFilterPrice from '../components/Filter/ProductFilterPrice'
 import ProductCartSum from '../components/Filter/ProductCartSum'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
+import phone from '../assets/phones.jpg'
 
-class App extends Component {
+class ProductListClass extends Component {
 
     static propTypes = {
         id: PropTypes.number.isRequired,
@@ -40,17 +40,17 @@ class App extends Component {
         ]
     };
 
-    deleteProduct = (index) => {
-        const newProducts = [...this.state.productList]; // Creates a new array of persons by copying the persons array.
-        newProducts.splice(index, 1); // Remove elements: starting at personIndex, 1 = total number of elements to remove.
-        this.setState({
-            productList: newProducts // Re-assign (in classes state) persons array after deletion.
-        })
-    };
+    // deleteProduct = (index) => {
+    //     const newProducts = [...this.state.productList]; // Creates a new array of persons by copying the persons array.
+    //     newProducts.splice(index, 1); // Remove elements: starting at personIndex, 1 = total number of elements to remove.
+    //     this.setState({
+    //         productList: newProducts // Re-assign (in classes state) persons array after deletion.
+    //     })
+    // };
 
     titlePrice = (index) => {
         const product = this.state.productList[index];
-        console.log(product.title, product.price)
+        console.log(product.title, product.price, product.id, product.index)
     };
 
     titles = () => {
@@ -70,9 +70,14 @@ class App extends Component {
     adminProducts = () => this.props.router.push('createproduct');
     listProducts = () => this.props.router.push('products');
 
+    productDetails = (index) => {
+        this.props.router.push('/products/' + this.state.productList[index].id);
+        console.log(index)
+    };
+
     componentDidMount() {
         console.log(this.props);
-        axios.get('/productsCollection/')
+        axios.get('/products/')
             .then(response => {
                 const products = response.data.slice(0, 20);
                 // const updatedProducts = products.map(product => {
@@ -104,7 +109,7 @@ class App extends Component {
                 <ProductList
                     productList={this.state.productList}
                     key={this.state.productList.id}
-                    clicked={this.deleteProduct1}/>
+                    clicked={this.productDetails}/>
 
                 <ProductTitle
                     productList={this.state.productList}
@@ -125,4 +130,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default ProductListClass;
