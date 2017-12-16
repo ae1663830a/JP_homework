@@ -56,5 +56,40 @@ mvn org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:run-war -Dmaven.tomcat.port
 
 
 
+// added to application.properties
+server.port=8088
+spring.jpa.hibernate.ddl-auto=none
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+spring.datasource.url=jdbc:h2:file:~/postgreDB/db/biblioteka.db
+spring.datasource.username=sa
+spring.datasource.password=
+spring.datasource.driver-class-name=org.h2.Driver
+
+
+// H2 database and JPA dependencies pom.xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.h2database</groupId>
+  <artifactId>h2</artifactId>
+</dependency>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
