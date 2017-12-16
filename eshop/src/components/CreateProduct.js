@@ -1,6 +1,13 @@
 import React from 'react'
 
-const newProduct = (props) => {
+const CreateProduct = (props) => {
+
+    const style = {
+        width: '150px',
+        marginTop: '5px',
+        marginBottom: '5px'
+    };
+
     return (
         <div>
             <form onSubmit={props.submitData}>
@@ -46,10 +53,11 @@ const newProduct = (props) => {
                            onChange={props.changeQuantity}
                     />
                 </div>
-                <input type="submit" className="btn btn-success" value="Submit"/>
+                <input style={style} type="submit" className="btn btn-success" value="Submit"/>
             </form>
+            <button style={style} className="btn btn-warning" onClick={props.cancelCreate}>Cancel</button>
         </div>
     )
 };
 
-export default newProduct;
+export default CreateProduct;

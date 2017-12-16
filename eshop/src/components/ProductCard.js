@@ -25,7 +25,7 @@ const productCard = (props) => {
                     <p>{props.description}</p>
                     <p>{props.price} &euro;</p>
                     <p>
-                        <button className="btn btn-danger" role="button" onClick={props.click}>Details</button>
+                        <button className="btn btn-danger" onClick={props.click}>Details</button>
                     </p>
                 </div>
             </div>

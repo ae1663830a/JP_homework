@@ -1,18 +1,20 @@
 import React, {Component} from 'react'
-import NewProduct from '../components/NewProduct'
+import NewProduct from '../components/CreateProduct'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
+import {hashHistory} from 'react-router'
 
-class Product extends Component {
+class CreateProductClass extends Component {
     state = {
         id: '',
         title: '',
         description: '',
         price: '',
         image: '',
-        quantity: ''
+        quantity: '',
     };
+
 
     static propTypes = {
         id: PropTypes.number.isRequired,
@@ -66,18 +68,22 @@ class Product extends Component {
         const product = this.state;
         axios.post('/productsCollection/', product)
             .then(response => {
-                console.log(response)
-            })
+                console.log(response);
+            });
+        hashHistory.replace('/')
     };
 
     listProducts = () => this.props.router.push('products');
+    cancelCreateProduct = () => hashHistory.goBack();
 
     render() {
+
         return (
             <div>
                 <Navbar
-                home={this.listProducts}
+                    home={this.listProducts}
                 />
+
                 <NewProduct
                     title={this.state.title}
                     changeTitle={this.titleChange}
@@ -90,10 +96,11 @@ class Product extends Component {
                     quantity={this.state.quantity}
                     changeQuantity={this.quantityChange}
                     submitData={this.addProduct}
+                    cancelCreate={this.cancelCreateProduct}
                 />
             </div>
         )
     }
 }
 
-export default Product;
+export default CreateProductClass;

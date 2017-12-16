@@ -1,0 +1,8 @@
+p, h2, h3 {
+    text-align: center;
+}
+#productDetails {
+    background: linear-gradient(#fff, #ccc);
+    padding: 20px;
+    margin: auto;
+}

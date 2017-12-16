@@ -1,35 +1,27 @@
 import React from 'react'
-
-const style = {
-    imageCss: {
-        display: 'block',
-        width: '100%',
-        height: '150px'
-    },
-    thumbnail: {
-        maxWidth: '170px',
-        textAlign: 'center',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        border: '1px solid red',
-    }
-};
+import './ProductDetails.css'
 
 const productDetails = (props) => {
     return (
-        <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-            <div className="thumbnail" style={style.thumbnail}>
-                <img src={props.image} style={style.imageCss} alt="..."/>
-                <div className="caption">
-                    <h3>{props.title}</h3>
-                    <p>{props.description}</p>
-                    <p>{props.price} &euro;</p>
-                    <p>
-                        <button className="btn btn-warning" role="button" onClick={props.goBack}>go back</button>
-                        <button className="btn btn-success" onClick={props.toCart}>Add to cart</button>
-                    </p>
+        <div id="productDetails" className="row">
+
+                <div className="col-xs-12 col-sm-6 md-6">
+                    <img id="img" className="img-responsive"
+                         src={props.image} alt="product"
+                         title={props.title}/>
                 </div>
-            </div>
+                <div className="col-xs-12 col-sm-6 md-6">
+                    <h2><b>{props.title}</b></h2>
+                    <p>{props.description}</p>
+                </div>
+
+            <h3>Product price</h3>
+            <h2>{props.price} &euro;</h2>
+            <p>
+                <button className="btn btn-success" onClick={props.toCart}>Add to cart</button>
+                &ensp;
+                <button className="btn btn-warning" onClick={props.goBack}>Cancel</button>
+            </p>
         </div>
     )
 };

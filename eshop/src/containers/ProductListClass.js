@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './ProductListClass.css';
 import ProductList from '../components/ProductList'
 import PropTypes from 'prop-types'
 import ProductTitle from '../components/Filter/ProductTitleAndPrice'
@@ -72,23 +72,20 @@ class ProductListClass extends Component {
 
     productDetails = (index) => {
         this.props.router.push('/products/' + this.state.productList[index].id);
-        console.log(index)
     };
 
     componentDidMount() {
-        console.log(this.props);
-        axios.get('/products/')
-            .then(response => {
-                const products = response.data.slice(0, 20);
-                // const updatedProducts = products.map(product => {
-                //     return {
-                //         ...product, image: phone
-                //     }
-                // });
-                this.setState({
-                    productList: products
-                })
+        axios.get('/products/').then(response => {
+            const products = response.data.slice(0, 20);
+            const updatedProducts = products.map(product => {
+                return {
+                    ...product, image: phone
+                }
+            });
+            this.setState({
+                productList: updatedProducts
             })
+        })
     }
 
     deleteProduct1 = (index) => {
@@ -119,7 +116,6 @@ class ProductListClass extends Component {
                     productList={this.state.productList}
                     key={this.state.productList.id}
                     clicked={this.ifSamsung}
-
                 />
 
                 <ProductCartSum

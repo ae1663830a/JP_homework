@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import ProductDetails from '../components/ProductDetails'
 import {hashHistory} from 'react-router'
 import axios from 'axios'
+import phone from '../assets/phones.jpg'
 
 class ProductDetailsContainer extends Component {
 
@@ -23,9 +24,9 @@ class ProductDetailsContainer extends Component {
 
     componentDidMount() {
         axios.get('products/' + this.props.params.id).then(response => {
-            this.setState({
-                product: response.data
-            })
+            const product = response.data;
+            const updatedProduct = {...product, image: phone};
+            this.setState({product: updatedProduct})
         })
     }
 
