@@ -65,7 +65,7 @@ class CreateProductClass extends Component {
 
     addProduct = () => {
         const product = this.state;
-        axios.post('products/', product)
+        axios.post('/products/', product)
             .then(response => {
                 console.log(response);
             });

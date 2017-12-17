@@ -19,10 +19,10 @@ public class PersistenceConfiguration {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean
-    @ConfigurationProperties(prefix = "datasource.flyway")
-    @FlywayDataSource
-    public DataSource flywayDataSource() {
-        return DataSourceBuilder.create().build();
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix = "datasource.flyway")
+//    @FlywayDataSource
+//    public DataSource flywayDataSource() {
+//        return DataSourceBuilder.create().build();
+//    }
 }

@@ -10,7 +10,7 @@ import axios from 'axios'
 import ProductDetails from './containers/ProductDetailsClass'
 
 // axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api/';
-axios.defaults.baseURL = 'https://localhost:8888/api/';
+axios.defaults.baseURL = 'http://localhost:8888/api/';
 
 
 const InitialApp = (props) => {
@@ -44,11 +44,11 @@ ReactDOM.render((
         <Route path="/" component={InitialApp}>
             <IndexRoute component={ProductListClass}/>
             <IndexRedirect to='products'/>
-            <Route path="createproduct" component={CreateProduct}/>
-            <Route path="products" component={ProductListClass}/>
-            <Route path="products/:id" component={ProductDetails}/>
-            <Route path="createproduct/:id" component={DemonstruotiNavigacija}/>
-            <Route path="help" component={DemonstruotiNavigacija}/>
+            <Route path="/createproduct" component={CreateProduct}/>
+            <Route path="/products" component={ProductListClass}/>
+            <Route path="/products/:id" component={ProductDetails}/>
+            <Route path="/createproduct/:id" component={DemonstruotiNavigacija}/>
+            <Route path="/help" component={DemonstruotiNavigacija}/>
             <Route path="*" component={NoMatch}/>
             <Route component={ProductListClass}/>
         </Route>
