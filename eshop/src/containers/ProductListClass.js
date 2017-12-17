@@ -71,11 +71,11 @@ class ProductListClass extends Component {
     listProducts = () => this.props.router.push('products');
 
     productDetails = (index) => {
-        this.props.router.push('/products/' + this.state.productList[index].id);
+        this.props.router.push('products/' + this.state.productList[index].id);
     };
 
     componentDidMount() {
-        axios.get('/products/').then(response => {
+        axios.get('products/').then(response => {
             const products = response.data.slice(0, 20);
             const updatedProducts = products.map(product => {
                 return {
@@ -89,7 +89,7 @@ class ProductListClass extends Component {
     }
 
     deleteProduct1 = (index) => {
-        axios.delete('/productsCollection/' + this.state.productList[index].id)
+        axios.delete('api/products/' + this.state.productList[index].id)
             .then(response => {
                 console.log(response)
             })

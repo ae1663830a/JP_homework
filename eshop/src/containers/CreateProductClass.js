@@ -15,7 +15,6 @@ class CreateProductClass extends Component {
         quantity: '',
     };
 
-
     static propTypes = {
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
@@ -66,7 +65,7 @@ class CreateProductClass extends Component {
 
     addProduct = () => {
         const product = this.state;
-        axios.post('/productsCollection/', product)
+        axios.post('products/', product)
             .then(response => {
                 console.log(response);
             });

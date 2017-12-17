@@ -1,12 +1,25 @@
-package it.akademija;
+package it.akademija.models;
 
-public class Product {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "product")
+public class Product implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "PRODUCT_ID")
     private int id;
+    @Column(name = "TITLE")
     private String title;
+    @Column(name = "PRICE")
     private double price;
+    @Column(name = "DESCRIPTION")
     private String description;
+    @Column(name = "IMAGE")
     private String image;
+    @Column(name = "QUANTITY")
     private int quantity;
 
     public Product() {
@@ -15,6 +28,14 @@ public class Product {
     public Product(String title, double price) {
         this.title = title;
         this.price = price;
+    }
+
+    public Product(String title, double price, String description, String image, int quantity) {
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.quantity = quantity;
     }
 
     public int getId() {
