@@ -1,13 +1,35 @@
 package springboot2.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "SHIPWRECK")
 public class Shipwreck {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private long id;
+
+    @Column(name = "NAME") // Not necessary
     private String name;
+
+    @Column
     private String description;
+
+    @Column
     private String condition;
+
+    @Column
     private Integer depth;
+
+    @Column
     private Double latitude;
+
+    @Column
     private Double longitude;
+
+    @Column
     private Integer yearDiscovered;
 
     public Shipwreck() {
