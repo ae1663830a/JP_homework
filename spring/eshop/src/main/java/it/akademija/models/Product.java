@@ -13,7 +13,7 @@ public class Product implements Serializable{
     private int id;
     @Column(name = "TITLE")
     private String title;
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", precision = 5, scale = 2)
     private double price;
     @Column(name = "DESCRIPTION")
     private String description;

@@ -3,7 +3,7 @@ import ProductCard from '../ProductCard'
 
 const productFilterPrice = (props) => {
     const products = props.productList;
-    const listItems = products.filter(productCard => productCard.price < 10)
+    const listItems = products.filter(productCard => productCard.price < 50)
         .map(productCard =>
             <ProductCard
                 key={productCard.id}

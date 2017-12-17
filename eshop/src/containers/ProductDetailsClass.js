@@ -25,8 +25,8 @@ class ProductDetailsContainer extends Component {
     componentDidMount() {
         axios.get('products/' + this.props.params.id).then(response => {
             const product = response.data;
-            const updatedProduct = {...product, image: phone};
-            this.setState({product: updatedProduct})
+            // const updatedProduct = {...product, image: phone};
+            this.setState({product: product})
         })
     }
 

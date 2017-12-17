@@ -77,13 +77,13 @@ class ProductListClass extends Component {
     componentDidMount() {
         axios.get('products/').then(response => {
             const products = response.data.slice(0, 20);
-            const updatedProducts = products.map(product => {
-                return {
-                    ...product, image: phone
-                }
-            });
+            // const updatedProducts = products.map(product => {
+            //     return {
+            //         ...product, image: phone
+            //     }
+            // });
             this.setState({
-                productList: updatedProducts
+                productList: products
             })
         })
     }
@@ -115,7 +115,7 @@ class ProductListClass extends Component {
                 <ProductFilterPrice
                     productList={this.state.productList}
                     key={this.state.productList.id}
-                    clicked={this.ifSamsung}
+                    clicked={this.titlePrice}
                 />
 
                 <ProductCartSum
