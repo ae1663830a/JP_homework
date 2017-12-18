@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -17,15 +20,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 public class App extends SpringBootServletInitializer {
 
-    @Bean
-    public Docket swaggerDocket(){
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
-                .select().apis(RequestHandlerSelectors.basePackage("it.akademija")).build();
-    }
-    private ApiInfo apiInfo(){
-        return new ApiInfoBuilder().title("IT Akademija REST Documentation").version("0.0.1-SNAPSHOT").build();
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
@@ -33,5 +27,25 @@ public class App extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(App.class);
+    }
+
+    @Bean
+    public Docket swaggerDocket() {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
+                .select().apis(RequestHandlerSelectors.basePackage("it.akademija")).build();
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder().title("IT Akademija REST Documentation").version("0.0.1-SNAPSHOT").build();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedMethods("*").allowedOrigins("*");
+            }
+        };
     }
 }

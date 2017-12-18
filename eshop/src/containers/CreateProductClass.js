@@ -7,25 +7,26 @@ import {hashHistory} from 'react-router'
 
 class CreateProductClass extends Component {
     state = {
-        id: '',
-        title: '',
-        description: '',
-        price: '',
-        image: '',
-        quantity: '',
+        product: {
+            id: 0,
+            image: '',
+            title: '',
+            description: '',
+            price: 0,
+            quantity: 0
+        }
     };
 
-    static propTypes = {
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired,
-        quantity: PropTypes.number.isRequired
-    };
-
+    // static propTypes = {
+    //     id: PropTypes.number,
+    //     title: PropTypes.string.isRequired,
+    //     description: PropTypes.string.isRequired,
+    //     price: PropTypes.number.isRequired,
+    //     image: PropTypes.string.isRequired,
+    //     quantity: PropTypes.number.isRequired
+    // };
+    //
     static defaultProps = {
-        id: 0,
         title: 'Undefined',
         description: 'Undefined',
         price: 0,
@@ -64,15 +65,30 @@ class CreateProductClass extends Component {
     };
 
     addProduct = () => {
-        const product = this.state;
-        axios.post('/products/', product)
-            .then(response => {
+        let product = this.state.product;
+        let productId = this.props.params.id;
+        if (productId === 'new') {
+            axios.post('/products/', product).then(response => {
                 console.log(response);
             });
-        hashHistory.replace('/')
+        } else {
+            axios.put('/products/' + this.state.product.id, this.state.product).then(response => {
+                console.log(response)
+            })
+        }
+        hashHistory.replace('/admin')
     };
 
+    componentDidMount() {
+        const productId = this.props.params.id;
+        if (productId !== 'new')
+            axios.get('products/' + productId).then(response => {
+                this.setState({product: response.data})
+            })
+    }
+
     listProducts = () => this.props.router.push('products');
+    adminProducts = () => this.props.router.push('admin');
     cancelCreateProduct = () => hashHistory.goBack();
 
     render() {
@@ -81,6 +97,7 @@ class CreateProductClass extends Component {
             <div>
                 <Navbar
                     home={this.listProducts}
+                    admin={this.adminProducts}
                 />
 
                 <NewProduct

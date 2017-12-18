@@ -8,9 +8,10 @@ import CreateProduct from './containers/CreateProductClass'
 import {Router, Route, IndexRoute, hashHistory, IndexRedirect} from 'react-router'
 import axios from 'axios'
 import ProductDetails from './containers/ProductDetailsClass'
+import ProductAdminListClass from './containers/ProductAdminListClass/ProductAdminListClass'
 
 // axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api/';
-axios.defaults.baseURL = 'http://localhost:8888/api/';
+axios.defaults.baseURL = 'http://192.168.0.20:8888/api/';
 
 
 const InitialApp = (props) => {
@@ -44,10 +45,11 @@ ReactDOM.render((
         <Route path="/" component={InitialApp}>
             <IndexRoute component={ProductListClass}/>
             <IndexRedirect to='products'/>
-            <Route path="/createproduct" component={CreateProduct}/>
+            <Route path="/admin" component={ProductAdminListClass}/>
+            <Route path="/admin/createproduct" component={CreateProduct}/>
             <Route path="/products" component={ProductListClass}/>
             <Route path="/products/:id" component={ProductDetails}/>
-            <Route path="/createproduct/:id" component={DemonstruotiNavigacija}/>
+            <Route path="/admin/createproduct/:id" component={CreateProduct}/>
             <Route path="/help" component={DemonstruotiNavigacija}/>
             <Route path="*" component={NoMatch}/>
             <Route component={ProductListClass}/>

@@ -67,7 +67,7 @@ class ProductListClass extends Component {
         console.log(sumsungPhones)
     };
 
-    adminProducts = () => this.props.router.push('createproduct');
+    adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
 
     productDetails = (index) => {
@@ -100,7 +100,7 @@ class ProductListClass extends Component {
         return (
             <div>
                 <Navbar
-                    create={this.adminProducts}
+                    admin={this.adminProducts}
                     home={this.listProducts}
                 />
                 <ProductList
@@ -108,19 +108,19 @@ class ProductListClass extends Component {
                     key={this.state.productList.id}
                     clicked={this.productDetails}/>
 
-                <ProductTitle
-                    productList={this.state.productList}
-                    key={this.state.productList.id}/>
+                {/*<ProductTitle*/}
+                    {/*productList={this.state.productList}*/}
+                    {/*key={this.state.productList.id}/>*/}
 
-                <ProductFilterPrice
-                    productList={this.state.productList}
-                    key={this.state.productList.id}
-                    clicked={this.titlePrice}
-                />
+                {/*<ProductFilterPrice*/}
+                    {/*productList={this.state.productList}*/}
+                    {/*key={this.state.productList.id}*/}
+                    {/*clicked={this.titlePrice}*/}
+                {/*/>*/}
 
-                <ProductCartSum
-                    productList={this.state.productList}
-                />
+                {/*<ProductCartSum*/}
+                    {/*productList={this.state.productList}*/}
+                {/*/>*/}
             </div>
         );
     }

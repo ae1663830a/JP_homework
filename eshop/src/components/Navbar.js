@@ -8,7 +8,7 @@ const navbar = (props) => {
                 <div className="container-fluid">
                     <ul className="nav navbar-nav">
                         <li className="active" ><Link onClick={props.home}>Home</Link></li>
-                        <li><Link className={props.active} onClick={props.create}>Admin</Link></li>
+                        <li><Link onClick={props.admin}>Admin</Link></li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <li>

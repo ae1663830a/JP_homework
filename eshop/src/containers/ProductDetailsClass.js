@@ -18,7 +18,7 @@ class ProductDetailsContainer extends Component {
         }
     };
 
-    adminProducts = () => this.props.router.push('createproduct');
+    adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
     goBack = () => hashHistory.goBack();
 
@@ -34,7 +34,7 @@ class ProductDetailsContainer extends Component {
         return (
             <div>
                 <Navbar
-                    create={this.adminProducts}
+                    admin={this.adminProducts}
                     home={this.listProducts}/>
 
                 <ProductDetails

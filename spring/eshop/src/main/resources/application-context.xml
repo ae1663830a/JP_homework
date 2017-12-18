@@ -3,22 +3,4 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-    <bean class="it.akademija.models.Product">
-        <property name="title" value="Third product"/>
-        <property name="price" value="3.33"/>
-        <property name="description" value="very good"/>
-        <property name="id" value="23"/>
-        <property name="image" value="none"/>
-        <property name="quantity" value="8"/>
-    </bean>
-
-    <bean class="it.akademija.models.Product">
-        <property name="title" value="Last product"/>
-        <property name="price" value="4.44"/>
-        <property name="description" value="very good"/>
-        <property name="id" value="43"/>
-        <property name="image" value="none"/>
-        <property name="quantity" value="8"/>
-    </bean>
 </beans>
