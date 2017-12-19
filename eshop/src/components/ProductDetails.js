@@ -6,7 +6,7 @@ const productDetails = (props) => {
         <div id="productDetails" className="row">
 
                 <div className="col-xs-12 col-sm-6 md-6">
-                    <img id="img" className="img-responsive"
+                    <img className="img-responsive"
                          src={props.image} alt="product"
                          title={props.title}/>
                 </div>

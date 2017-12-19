@@ -18,7 +18,7 @@ const CreateProduct = (props) => {
                            placeholder="Product title"
                            key={props.id}
                            value={props.title}
-                           onChange={props.changeTitle}/>
+                           onChange={props.onFieldChange('title')}/>
                 </div>
                 <div className="form-group">
                     <label>Image Url</label>
@@ -26,7 +26,7 @@ const CreateProduct = (props) => {
                            className="form-control"
                            placeholder="Product image URL"
                            value={props.image}
-                           onChange={props.changeImage}/>
+                           onChange={props.onFieldChange('image')}/>
                 </div>
                 <div className="form-group">
                     <label>Description</label>
@@ -34,7 +34,7 @@ const CreateProduct = (props) => {
                            className="form-control"
                            placeholder="Product description"
                            value={props.description}
-                           onChange={props.changeDescription}/>
+                           onChange={props.onFieldChange('description')}/>
                 </div>
                 <div className="form-group">
                     <label>Price</label>
@@ -42,7 +42,7 @@ const CreateProduct = (props) => {
                            className="form-control"
                            placeholder="Product price"
                            value={props.price}
-                           onChange={props.changePrice}/>
+                           onChange={props.onFieldChange('price')}/>
                 </div>
                 <div className="form-group">
                     <label>Quantity</label>
@@ -50,7 +50,7 @@ const CreateProduct = (props) => {
                            className="form-control"
                            placeholder="Product quantity"
                            value={props.quantity}
-                           onChange={props.changeQuantity}
+                           onChange={props.onFieldChange('quantity')}
                     />
                 </div>
                 <input style={style} type="submit" className="btn btn-success" value="Submit"/>

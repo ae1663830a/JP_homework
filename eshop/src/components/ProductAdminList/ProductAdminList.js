@@ -15,6 +15,7 @@ const productAdminList = (props) => {
             title={productAdminCard.title}
             description={productAdminCard.description}
             edit={() => props.editProduct(index)}
+            delete={() => props.deleteProduct(index)}
         />
     );
     return (

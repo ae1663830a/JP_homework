@@ -28,7 +28,7 @@ class ProductAdminListClass extends Component {
         quantity: 0
     };
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get('products/').then(response => {
             const products = response.data;
             // const updatedProducts = products.map(product => {
@@ -43,11 +43,18 @@ class ProductAdminListClass extends Component {
     }
 
     editProduct = (index) => {
-        this.props.router.push('admin/createproduct/' + this.state.productList[index].id);
+        return this.props.router.push('admin/createproduct/' + this.state.productList[index].id);
     };
     adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
     createProduct = () => this.props.router.push('admin/createproduct/new');
+
+    deleteProduct = (index) => {
+       return axios.delete('products/' + this.state.productList[index].id)
+            .then(response => {
+                console.log(response)
+            })
+    };
 
     render() {
         return (
@@ -63,6 +70,7 @@ class ProductAdminListClass extends Component {
                     description={this.state.productList.description}
                     image={this.state.productList.image}
                     editProduct={this.editProduct}
+                    deleteProduct={this.deleteProduct}
                 />
                 <p>
                     <button id="button" className="btn btn-success" onClick={this.createProduct}>Add new product

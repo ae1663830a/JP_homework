@@ -88,13 +88,6 @@ class ProductListClass extends Component {
         })
     }
 
-    deleteProduct1 = (index) => {
-        axios.delete('products/' + this.state.productList[index].id)
-            .then(response => {
-                console.log(response)
-            })
-    };
-
     render() {
 
         return (

@@ -46,7 +46,7 @@ public class ProductController {
             throw new NullPointerException();
         }
         BeanUtils.copyProperties(product, oldProduct);
-        return productRepository.save(product);
+        return productRepository.save(oldProduct);
     }
 
     @ApiOperation(value = "Delete product", notes = "Deletes product")

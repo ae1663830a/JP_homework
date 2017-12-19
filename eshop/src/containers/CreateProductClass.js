@@ -17,15 +17,15 @@ class CreateProductClass extends Component {
         }
     };
 
-    // static propTypes = {
-    //     id: PropTypes.number,
-    //     title: PropTypes.string.isRequired,
-    //     description: PropTypes.string.isRequired,
-    //     price: PropTypes.number.isRequired,
-    //     image: PropTypes.string.isRequired,
-    //     quantity: PropTypes.number.isRequired
-    // };
-    //
+    static propTypes = {
+        id: PropTypes.number,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        quantity: PropTypes.number.isRequired
+    };
+
     static defaultProps = {
         title: 'Undefined',
         description: 'Undefined',
@@ -34,35 +34,38 @@ class CreateProductClass extends Component {
         quantity: 0
     };
 
-    titleChange = (event) => {
-        this.setState({
-            title: event.target.value
-        })
+    changeValueHandler = (fieldName) => {
+        return (event) => {
+            const changedProduct = this.state.product;
+            changedProduct[fieldName] = event.target.value;
+            this.setState({product: changedProduct})
+        };
     };
 
-    imageChange = (event) => {
-        this.setState({
-            image: event.target.value
-        })
-    };
 
-    descriptionChange = (event) => {
-        this.setState({
-            description: event.target.value
-        })
-    };
-
-    priceChange = (event) => {
-        this.setState({
-            price: event.target.value
-        })
-    };
-
-    quantityChange = (event) => {
-        this.setState({
-            quantity: event.target.value
-        })
-    };
+    // imageChange = (event) => {
+    //     this.setState({
+    //         image: event.target.value
+    //     })
+    // };
+    //
+    // descriptionChange = (event) => {
+    //     this.setState({
+    //         description: event.target.value
+    //     })
+    // };
+    //
+    // priceChange = (event) => {
+    //     this.setState({
+    //         price: event.target.value
+    //     })
+    // };
+    //
+    // quantityChange = (event) => {
+    //     this.setState({
+    //         quantity: event.target.value
+    //     })
+    // };
 
     addProduct = () => {
         let product = this.state.product;
@@ -101,18 +104,19 @@ class CreateProductClass extends Component {
                 />
 
                 <NewProduct
-                    title={this.state.title}
-                    changeTitle={this.titleChange}
-                    image={this.state.image}
-                    changeImage={this.imageChange}
-                    description={this.state.description}
-                    changeDescription={this.descriptionChange}
-                    price={this.state.price}
-                    changePrice={this.priceChange}
-                    quantity={this.state.quantity}
-                    changeQuantity={this.quantityChange}
+                    // changeTitle={this.titleChange}
+                    // image={this.state.image}
+                    // changeImage={this.imageChange}
+                    // description={this.state.description}
+                    // changeDescription={this.descriptionChange}
+                    // price={this.state.price}
+                    // changePrice={this.priceChange}
+                    // quantity={this.state.quantity}
+                    // changeQuantity={this.quantityChange}
+                    onFieldChange={this.changeValueHandler}
                     submitData={this.addProduct}
                     cancelCreate={this.cancelCreateProduct}
+
                 />
             </div>
         )
