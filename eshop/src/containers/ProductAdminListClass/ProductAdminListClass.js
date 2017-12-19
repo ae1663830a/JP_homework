@@ -40,7 +40,9 @@ class ProductAdminListClass extends Component {
             axios.get('products/').then(response => {
                 this.setState({productList: response.data})
             })
-        });
+        }).catch(error => {
+            console.log('Error = ' + error)
+        })
     };
 
     // componentDidUpdate() {
@@ -64,6 +66,8 @@ class ProductAdminListClass extends Component {
             this.setState({
                 productList: products
             })
+        }).catch(error => {
+            console.log('Error = ' + error)
         })
     }
 

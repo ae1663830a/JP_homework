@@ -3,7 +3,7 @@ import NewProduct from '../components/CreateProduct'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
-import {hashHistory} from 'react-router'
+import {browserHistory} from 'react-router'
 
 class CreateProductClass extends Component {
     state = {
@@ -35,11 +35,13 @@ class CreateProductClass extends Component {
     };
 
     changeValueHandler = (fieldName) => {
-        return (event) => {
-            const changedProduct = this.state.product;
-            changedProduct[fieldName] = event.target.value;
-            this.setState({product: changedProduct})
-        };
+        return (
+            (event) => {
+                const changedProduct = this.state.product;
+                changedProduct[fieldName] = event.target.value;
+                this.setState({product: changedProduct})
+            }
+        )
     };
 
     addProduct = () => {
@@ -48,13 +50,17 @@ class CreateProductClass extends Component {
         if (productId === 'new') {
             axios.post('/products/', product).then(response => {
                 console.log(response);
-            });
+            }).catch(error => {
+                console.log('Error = ' + error)
+            })
         } else {
             axios.put('/products/' + productId, product).then(response => {
                 console.log(response)
+            }).catch(error => {
+                console.log('Error = ' + error)
             })
         }
-        hashHistory.replace('/admin')
+        browserHistory.replace('/admin')
     };
 
     componentDidMount() {
@@ -62,12 +68,14 @@ class CreateProductClass extends Component {
         if (productId !== 'new')
             axios.get('products/' + productId).then(response => {
                 this.setState({product: response.data})
+            }).catch(error => {
+                console.log('Error = ' + error)
             })
     }
 
     listProducts = () => this.props.router.push('products');
     adminProducts = () => this.props.router.push('admin');
-    cancelCreateProduct = () => hashHistory.goBack();
+    cancelCreateProduct = () => browserHistory.goBack();
 
     render() {
 

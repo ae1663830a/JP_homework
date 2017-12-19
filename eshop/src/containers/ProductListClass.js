@@ -56,10 +56,9 @@ class ProductListClass extends Component {
     };
 
     ifSamsung = () => {
-        const sumsungPhones = this.state.productList
-            .filter(phone => phone.title === 'Samsung')
-            .map(phone => phone.description);
-        console.log(sumsungPhones)
+        const samsungPhones = this.state.productList;
+        samsungPhones.filter(phone => phone.title === 'Samsung').map(phone => phone.description);
+        console.log(samsungPhones)
     };
 
     adminProducts = () => this.props.router.push('admin');
@@ -67,6 +66,13 @@ class ProductListClass extends Component {
 
     productDetails = (index) => {
         this.props.router.push('products/' + this.state.productList[index].id);
+    };
+
+    filterByPrice = () => {
+        const expensiveProductsNames = this.state.productList;
+        const filtered = expensiveProductsNames.filter(product => product.price > 100)
+            .map(product => product.title).reduce((titles, title) => titles + ' ' + title);
+        console.log("Titles: ", filtered)
     };
 
     componentDidMount() {
@@ -80,6 +86,8 @@ class ProductListClass extends Component {
             this.setState({
                 productList: products
             })
+        }).catch(error => {
+            console.log('Error = ' + error)
         })
     }
 
@@ -97,18 +105,19 @@ class ProductListClass extends Component {
                     clicked={this.productDetails}/>
 
                 {/*<ProductTitle*/}
-                    {/*productList={this.state.productList}*/}
-                    {/*key={this.state.productList.id}/>*/}
+                {/*productList={this.state.productList}*/}
+                {/*key={this.state.productList.id}/>*/}
 
                 {/*<ProductFilterPrice*/}
-                    {/*productList={this.state.productList}*/}
-                    {/*key={this.state.productList.id}*/}
-                    {/*clicked={this.titlePrice}*/}
+                {/*productList={this.state.productList}*/}
+                {/*key={this.state.productList.id}*/}
+                {/*clicked={this.titlePrice}*/}
                 {/*/>*/}
 
                 {/*<ProductCartSum*/}
-                    {/*productList={this.state.productList}*/}
+                {/*productList={this.state.productList}*/}
                 {/*/>*/}
+                {/*<button onClick={this.filterByPrice}>Filter</button>*/}
             </div>
         );
     }
