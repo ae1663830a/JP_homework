@@ -23,10 +23,12 @@ const productAdminList = (props) => {
             <table className="table">
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Product ID</th>
                     <th>Image</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Edit Product</th>
+                    <th>Delete Product</th>
                 </tr>
                 </thead>
                 <tbody>{listItems}</tbody>

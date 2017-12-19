@@ -8,12 +8,12 @@ import {hashHistory} from 'react-router'
 class CreateProductClass extends Component {
     state = {
         product: {
-            id: 0,
+            id: null,
             image: '',
             title: '',
             description: '',
-            price: 0,
-            quantity: 0
+            price: null,
+            quantity: null
         }
     };
 
@@ -42,34 +42,9 @@ class CreateProductClass extends Component {
         };
     };
 
-
-    // imageChange = (event) => {
-    //     this.setState({
-    //         image: event.target.value
-    //     })
-    // };
-    //
-    // descriptionChange = (event) => {
-    //     this.setState({
-    //         description: event.target.value
-    //     })
-    // };
-    //
-    // priceChange = (event) => {
-    //     this.setState({
-    //         price: event.target.value
-    //     })
-    // };
-    //
-    // quantityChange = (event) => {
-    //     this.setState({
-    //         quantity: event.target.value
-    //     })
-    // };
-
     addProduct = () => {
-        let product = this.state.product;
-        let productId = this.props.params.id;
+        const product = this.state.product;
+        const productId = this.props.params.id;
         if (productId === 'new') {
             axios.post('/products/', product).then(response => {
                 console.log(response);
@@ -104,19 +79,14 @@ class CreateProductClass extends Component {
                 />
 
                 <NewProduct
-                    // changeTitle={this.titleChange}
-                    // image={this.state.image}
-                    // changeImage={this.imageChange}
-                    // description={this.state.description}
-                    // changeDescription={this.descriptionChange}
-                    // price={this.state.price}
-                    // changePrice={this.priceChange}
-                    // quantity={this.state.quantity}
-                    // changeQuantity={this.quantityChange}
+                    title={this.state.product.title}
+                    image={this.state.product.image}
+                    description={this.state.product.description}
+                    price={this.state.product.price}
+                    quantity={this.state.product.quantity}
                     onFieldChange={this.changeValueHandler}
                     submitData={this.addProduct}
                     cancelCreate={this.cancelCreateProduct}
-
                 />
             </div>
         )
