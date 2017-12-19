@@ -8,12 +8,12 @@ import {hashHistory} from 'react-router'
 class CreateProductClass extends Component {
     state = {
         product: {
-            id: null,
+            id: '',
             image: '',
             title: '',
             description: '',
-            price: null,
-            quantity: null
+            price: '',
+            quantity: ''
         }
     };
 
@@ -50,7 +50,7 @@ class CreateProductClass extends Component {
                 console.log(response);
             });
         } else {
-            axios.put('/products/' + this.state.product.id, this.state.product).then(response => {
+            axios.put('/products/' + productId, product).then(response => {
                 console.log(response)
             })
         }

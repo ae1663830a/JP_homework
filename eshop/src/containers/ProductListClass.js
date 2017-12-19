@@ -32,11 +32,6 @@ class ProductListClass extends Component {
             // {id: 1, title: 'Phone', description: 'new phone', price: 3, image: phone},
             // {id: 2, title: 'iPhone', description: 'new phone', price: 6, image: phone},
             // {id: 3, title: 'Samsung', description: 'old phone', price: 5, image: phone},
-            // {id: 4, title: 'Old', description: 'new phone', price: 4, image: phone},
-            // {id: 5, title: 'Samsung', description: 'new phone', price: 12, image: phone},
-            // {id: 6, title: 'SE', description: 'new phone', price: 34, image: phone},
-            // {id: 7, title: 'CAT', description: 'new phone', price: 21, image: phone},
-            // {id: 8, title: 'Sony', description: 'new phone', price: 12, image: phone}
         ]
     };
 

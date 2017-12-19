@@ -22,11 +22,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateProduct.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateProduct.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CreateProduct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            <state relative-caret-position="120">
+              <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -35,8 +35,8 @@
       <file leaf-file-name="ProductListClass.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/ProductListClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-750">
-              <caret line="38" column="88" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="38" selection-end-column="88" />
+            <state relative-caret-position="248">
+              <caret line="43" column="9" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="43" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -45,8 +45,8 @@
       <file leaf-file-name="CreateProductClass.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/CreateProductClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+            <state relative-caret-position="30">
+              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -55,18 +55,18 @@
       <file leaf-file-name="ProductAdminList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ProductAdminList/ProductAdminList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="240">
+              <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductAdminListClass.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProductAdminListClass.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/ProductAdminListClass/ProductAdminListClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="1050">
+              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -137,11 +137,11 @@
         <option value="$PROJECT_DIR$/src/components/ProductAdminList/ProductAdminCard.css" />
         <option value="$PROJECT_DIR$/src/components/ProductDetails.js" />
         <option value="$PROJECT_DIR$/src/containers/ProductDetailsClass.js" />
-        <option value="$PROJECT_DIR$/src/containers/ProductListClass.js" />
-        <option value="$PROJECT_DIR$/src/containers/ProductAdminListClass/ProductAdminListClass.js" />
-        <option value="$PROJECT_DIR$/src/containers/CreateProductClass.js" />
         <option value="$PROJECT_DIR$/src/components/ProductAdminList/ProductAdminList.js" />
         <option value="$PROJECT_DIR$/src/components/CreateProduct.js" />
+        <option value="$PROJECT_DIR$/src/containers/ProductListClass.js" />
+        <option value="$PROJECT_DIR$/src/containers/CreateProductClass.js" />
+        <option value="$PROJECT_DIR$/src/containers/ProductAdminListClass/ProductAdminListClass.js" />
       </list>
     </option>
   </component>
@@ -474,12 +474,12 @@
       <workItem from="1513623935518" duration="17287000" />
       <workItem from="1513643523425" duration="4756000" />
       <workItem from="1513648356108" duration="270000" />
-      <workItem from="1513677114682" duration="1803000" />
+      <workItem from="1513677114682" duration="10753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154869000" />
+    <option name="totallyTimeSpent" value="163819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="745" extended-state="6" />
@@ -841,32 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ProductListClass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750">
-          <caret line="38" column="88" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="38" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ProductAdminListClass/ProductAdminListClass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/CreateProductClass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProductAdminList/ProductAdminCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -875,19 +849,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ProductAdminList/ProductAdminList.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/ProductListClass.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="248">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="43" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CreateProduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="120">
+          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ProductAdminList/ProductAdminList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/CreateProductClass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ProductAdminListClass/ProductAdminListClass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -28,6 +28,31 @@ class ProductAdminListClass extends Component {
         quantity: 0
     };
 
+    editProduct = (index) => {
+        return this.props.router.push('admin/createproduct/' + this.state.productList[index].id);
+    };
+    adminProducts = () => this.props.router.push('admin');
+    listProducts = () => this.props.router.push('products');
+    createProduct = () => this.props.router.push('admin/createproduct/new');
+
+    deleteProduct = (index) => {
+        axios.delete('products/' + this.state.productList[index].id).then(() => {
+            axios.get('products/').then(response => {
+                this.setState({productList: response.data})
+            })
+        });
+    };
+
+    // componentDidUpdate() {
+    //         axios.get('products/').then(response => {
+    //             const products = response.data;
+    //             if(this.state.productList !== products)
+    //             this.setState({
+    //                 productList: products
+    //             })
+    //         })
+    // }
+
     componentDidMount() {
         axios.get('products/').then(response => {
             const products = response.data;
@@ -41,20 +66,6 @@ class ProductAdminListClass extends Component {
             })
         })
     }
-
-    editProduct = (index) => {
-        return this.props.router.push('admin/createproduct/' + this.state.productList[index].id);
-    };
-    adminProducts = () => this.props.router.push('admin');
-    listProducts = () => this.props.router.push('products');
-    createProduct = () => this.props.router.push('admin/createproduct/new');
-
-    deleteProduct = (index) => {
-       return axios.delete('products/' + this.state.productList[index].id)
-            .then(response => {
-                console.log(response)
-            })
-    };
 
     render() {
         return (
