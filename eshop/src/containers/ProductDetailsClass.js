@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Navbar from '../components/Navbar'
 import ProductDetails from '../components/ProductDetails'
-import {browserHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 import axios from 'axios'
 import phone from '../assets/phones.jpg'
 
@@ -20,7 +20,7 @@ class ProductDetailsContainer extends Component {
 
     adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
-    goBack = () => browserHistory.goBack();
+    goBack = () => hashHistory.goBack();
 
     componentDidMount() {
         axios.get('products/' + this.props.params.id).then(response => {

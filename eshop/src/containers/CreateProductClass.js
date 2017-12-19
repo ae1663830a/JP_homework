@@ -3,7 +3,7 @@ import NewProduct from '../components/CreateProduct'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
-import {browserHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 
 class CreateProductClass extends Component {
     state = {
@@ -60,7 +60,7 @@ class CreateProductClass extends Component {
                 console.log('Error = ' + error)
             })
         }
-        browserHistory.replace('/admin')
+        hashHistory.replace('/admin')
     };
 
     componentDidMount() {
@@ -75,7 +75,7 @@ class CreateProductClass extends Component {
 
     listProducts = () => this.props.router.push('products');
     adminProducts = () => this.props.router.push('admin');
-    cancelCreateProduct = () => browserHistory.goBack();
+    cancelCreateProduct = () => hashHistory.goBack();
 
     render() {
 

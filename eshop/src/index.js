@@ -22,20 +22,24 @@ const InitialApp = (props) => {
 
 const NoMatch = () => {
     return <div className="notFound">
-        <h1 >Page not found</h1><br/>
-        <p><button className="btn btn-lg btn-warning" onClick={() => browserHistory.replace('/')}>To main page</button></p>
+        <h1>Page not found</h1><br/>
+        <p>
+            <button className="btn btn-lg btn-warning" onClick={() => hashHistory.replace('/')}>
+                To main page
+            </button>
+        </p>
     </div>;
 };
 
 ReactDOM.render((
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path="/" component={InitialApp}>
             <IndexRoute component={ProductListClass}/>
             <IndexRedirect to='products'/>
-            <Route path="/admin" component={ProductAdminListClass}/>
-            <Route path="/admin/createproduct" component={CreateProduct}/>
             <Route path="/products" component={ProductListClass}/>
             <Route path="/products/:id" component={ProductDetails}/>
+            <Route path="/admin" component={ProductAdminListClass}/>
+            <Route path="/admin/createproduct" component={CreateProduct}/>
             <Route path="/admin/createproduct/:id" component={CreateProduct}/>
             {/*<Route path="/help" component={DemonstruotiNavigacija}/>*/}
             <Route path="*" component={NoMatch}/>
