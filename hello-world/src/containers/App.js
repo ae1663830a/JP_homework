@@ -38,6 +38,12 @@ class App extends Component {
         event.preventDefault()
     };
 
+    componentWillMount(){
+        console.log(this.props)
+    }
+
+
+
     render() {
         return (
             <div className="App">

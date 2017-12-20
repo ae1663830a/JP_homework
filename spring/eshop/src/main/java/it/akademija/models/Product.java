@@ -9,7 +9,7 @@ public class Product implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PRODUCT_ID")
+    @Column(name = "PRODUCT_ID", unique = true)
     private int id;
     @Column(name = "TITLE")
     private String title;

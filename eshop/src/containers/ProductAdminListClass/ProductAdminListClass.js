@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import ProductAdminList from '../../components/ProductAdminList/ProductAdminList'
 import axios from "axios/index";
 import PropTypes from "prop-types";
+import productList from "../../components/ProductList";
 
 class ProductAdminListClass extends Component {
 
@@ -87,7 +88,7 @@ class ProductAdminListClass extends Component {
                     editProduct={this.editProduct}
                     deleteProduct={this.deleteProduct}
                 />
-                <p>
+                <p >
                     <button id="button" className="btn btn-success" onClick={this.createProduct}>Add new product
                     </button>
                 </p>

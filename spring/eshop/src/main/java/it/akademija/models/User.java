@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table
 public class User {
 
+    //post
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
@@ -20,7 +21,8 @@ public class User {
     private String email;
     private String country;
 
-    public User() { }
+    public User() {
+    }
 
     public User(String firstName, String lastName, int age, long phone, String email, String country) {
         this.firstName = firstName;
