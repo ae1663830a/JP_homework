@@ -6,38 +6,37 @@ import javax.persistence.*;
 @Table
 public class User {
 
-    //post
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private int id;
+    private long id;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
     private String lastName;
-    private int age;
-    private long phone;
     @Column(nullable = false)
     private String email;
-    private String country;
+
+//    @OneToOne(cascade = {
+//            CascadeType.DETACH,
+//            CascadeType.MERGE
+//    })
+//    private Cart cart;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, int age, long phone, String email, String country) {
+    public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
-        this.phone = phone;
         this.email = email;
-        this.country = country;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -57,22 +56,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public long getPhone() {
-        return phone;
-    }
-
-    public void setPhone(long phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -81,11 +64,11 @@ public class User {
         this.email = email;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
+//    public Cart getCart() {
+//        return cart;
+//    }
+//
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
+//    }
 }

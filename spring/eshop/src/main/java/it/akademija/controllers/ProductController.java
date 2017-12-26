@@ -22,31 +22,31 @@ public class ProductController {
     @RequestMapping(method = RequestMethod.GET, value = "/api/products")
     @ApiOperation(value = "Get products", notes = "Returns products")
     public List<Product> productList() {
-        return productService.getProducts();
+        return productService.getAll();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/api/products")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create product", notes = "Creates a new product")
     public Product createProduct(@RequestBody final Product product) {
-        return productService.createProduct(product);
+        return productService.create(product);
     }
 
     @ApiOperation(value = "Find product", notes = "Finds product by id")
     @RequestMapping(method = RequestMethod.GET, value = "/api/products/{id}")
-    public Product getProductById(@PathVariable final int id) {
-        return productService.getProduct(id);
+    public Product getProductById(@PathVariable final long id) {
+        return productService.getById(id);
     }
 
     @ApiOperation(value = "Update product", notes = "Updates product details")
     @RequestMapping(method = RequestMethod.PUT, value = "/api/products/{id}")
-    public Product updateProduct(@PathVariable int id, @RequestBody Product product) {
-        return productService.updateProduct(id, product);
+    public Product updateProduct(@PathVariable long id, @RequestBody Product product) {
+        return productService.update(id, product);
     }
 
     @ApiOperation(value = "Delete product", notes = "Deletes product")
     @RequestMapping(method = RequestMethod.DELETE, value = "/api/products/{id}")
-    public void deleteProduct(@PathVariable int id) {
-        productService.deleteProduct(id);
+    public void deleteProduct(@PathVariable final long id) {
+        productService.delete(id);
     }
 }

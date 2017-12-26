@@ -11,7 +11,7 @@ import ProductDetails from './containers/ProductDetailsClass'
 import ProductAdminListClass from './containers/ProductAdminListClass/ProductAdminListClass'
 
 // axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api/';
-axios.defaults.baseURL = 'http://192.168.0.20:8888/api/';
+axios.defaults.baseURL = 'http://localhost:8888/api/';
 
 
 const InitialApp = (props) => {

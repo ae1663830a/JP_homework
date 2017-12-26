@@ -12,43 +12,41 @@ import java.util.List;
 
 @RestController
 @Api(value = "user")
-@RequestMapping
+@RequestMapping(value = "/api/")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/api/users")
+    @RequestMapping(method = RequestMethod.GET, value = "users")
     @ApiOperation(value = "Get users", notes = "Returns users")
     public List<User> userList() {
         return userService.getUsers();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/api/users")
+    @RequestMapping(method = RequestMethod.POST, value = "users")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create user", notes = "Creates a new user")
     public User create(@RequestBody final User user) {
-       return userService.createUser(user);
+        return userService.createUser(user);
     }
 
     @ApiOperation(value = "Find user", notes = "Finds user by id")
-    @RequestMapping(method = RequestMethod.GET, value = "/api/users/{id}")
-    public User getUserById(@PathVariable final int id) {
+    @RequestMapping(method = RequestMethod.GET, value = "users/{id}")
+    public User getUserById(@PathVariable final long id) {
         return userService.getUser(id);
     }
 
-    //
     @ApiOperation(value = "Update user", notes = "Updates users details")
-    @RequestMapping(method = RequestMethod.PUT, value = "/api/users/{id}")
-    public User updateUser(@PathVariable int id, @RequestBody User user) {
+    @RequestMapping(method = RequestMethod.PUT, value = "users/{id}")
+    public User updateUser(@PathVariable long id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
-    //
     @ApiOperation(value = "Delete user", notes = "Deletes user")
-    @RequestMapping(method = RequestMethod.DELETE, value = "/api/users/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "users/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public User deleteUser(@PathVariable int id) {
-        return userService.deleteUser(id);
+    public void deleteUser(@PathVariable long id) {
+        userService.deleteUser(id);
     }
 }

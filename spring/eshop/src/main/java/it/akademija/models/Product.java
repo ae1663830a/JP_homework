@@ -1,19 +1,26 @@
 package it.akademija.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "product")
-public class Product implements Serializable{
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PRODUCT_ID", unique = true)
-    private int id;
+    @Column(name = "PRODUCT_ID")
+    private long id;
+//    @NaturalId
     @Column(name = "TITLE")
     private String title;
-    @Column(name = "PRICE", precision = 5, scale = 2)
+    @Column(name = "PRICE")
     private double price;
     @Column(name = "DESCRIPTION")
     private String description;
@@ -21,6 +28,11 @@ public class Product implements Serializable{
     private String image;
     @Column(name = "QUANTITY")
     private int quantity;
+
+//    @ManyToMany(mappedBy = "products")
+//    @JsonIgnore
+//    private List<Cart> carts;
+
 
     public Product() {
     }
@@ -37,12 +49,20 @@ public class Product implements Serializable{
         this.image = image;
         this.quantity = quantity;
     }
+//
+//    public List<Cart> getCarts() {
+//        return carts;
+//    }
+//
+//    public void setCarts(List<Cart> carts) {
+//        this.carts = carts;
+//    }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -86,3 +106,4 @@ public class Product implements Serializable{
         this.quantity = quantity;
     }
 }
+
