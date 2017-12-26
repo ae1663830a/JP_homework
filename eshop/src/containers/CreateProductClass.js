@@ -75,6 +75,7 @@ class CreateProductClass extends Component {
 
     listProducts = () => this.props.router.push('products');
     adminProducts = () => this.props.router.push('admin');
+    registerUser= () => this.props.router.push('users/register');
     cancelCreateProduct = () => hashHistory.goBack();
 
     render() {
@@ -84,6 +85,7 @@ class CreateProductClass extends Component {
                 <Navbar
                     home={this.listProducts}
                     admin={this.adminProducts}
+                    register={this.registerUser}
                 />
 
                 <NewProduct

@@ -18,8 +18,10 @@ const navbar = (props) => {
                     <form className="navbar-form navbar-left">
                         <div className="form-group">
                             <input type="text" className="form-control" placeholder="Username" name="search"/>
+                            <input type="text" className="form-control" placeholder="Password" name="search"/>
                         </div>
                         <button type="submit" className="btn btn-default">Login</button>
+                        <button onClick={props.register} className="btn btn-default">Register</button>
                     </form>
                 </div>
             </nav>

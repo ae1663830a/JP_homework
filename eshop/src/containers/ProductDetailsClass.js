@@ -20,6 +20,7 @@ class ProductDetailsContainer extends Component {
 
     adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
+    registerUser = () => this.props.router.push('users/register');
     goBack = () => hashHistory.goBack();
 
     componentDidMount() {
@@ -37,7 +38,8 @@ class ProductDetailsContainer extends Component {
             <div>
                 <Navbar
                     admin={this.adminProducts}
-                    home={this.listProducts}/>
+                    home={this.listProducts}
+                    register={this.registerUser}/>
 
                 <ProductDetails
                     goBack={this.goBack}

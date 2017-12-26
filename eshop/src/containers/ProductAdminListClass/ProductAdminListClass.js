@@ -34,6 +34,7 @@ class ProductAdminListClass extends Component {
     };
     adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
+    registerUser = () => this.props.router.push('users/register');
     createProduct = () => this.props.router.push('admin/createproduct/new');
 
     deleteProduct = (index) => {
@@ -78,6 +79,8 @@ class ProductAdminListClass extends Component {
                 <Navbar
                     admin={this.adminProducts}
                     home={this.listProducts}
+                    register={this.registerUser}
+
                 />
                 <ProductAdminList
                     productList={this.state.productList}
@@ -88,7 +91,7 @@ class ProductAdminListClass extends Component {
                     editProduct={this.editProduct}
                     deleteProduct={this.deleteProduct}
                 />
-                <p >
+                <p>
                     <button id="button" className="btn btn-success" onClick={this.createProduct}>Add new product
                     </button>
                 </p>

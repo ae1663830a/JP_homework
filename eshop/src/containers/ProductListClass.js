@@ -63,6 +63,7 @@ class ProductListClass extends Component {
 
     adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
+    registerUser= () => this.props.router.push('users/register');
 
     productDetails = (index) => {
         this.props.router.push('products/' + this.state.productList[index].id);
@@ -98,6 +99,7 @@ class ProductListClass extends Component {
                 <Navbar
                     admin={this.adminProducts}
                     home={this.listProducts}
+                    register={this.registerUser}
                 />
                 <ProductList
                     productList={this.state.productList}

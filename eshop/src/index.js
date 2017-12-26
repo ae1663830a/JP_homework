@@ -9,6 +9,7 @@ import {Router, Route, IndexRoute, hashHistory, IndexRedirect, browserHistory} f
 import axios from 'axios'
 import ProductDetails from './containers/ProductDetailsClass'
 import ProductAdminListClass from './containers/ProductAdminListClass/ProductAdminListClass'
+import RegisterUser from './containers/UserRegisterClass/UserRegisterClass'
 
 // axios.defaults.baseURL = 'https://itpro2017.herokuapp.com/api/';
 axios.defaults.baseURL = 'http://localhost:8888/api/';
@@ -41,6 +42,7 @@ ReactDOM.render((
             <Route path="/admin" component={ProductAdminListClass}/>
             <Route path="/admin/createproduct" component={CreateProduct}/>
             <Route path="/admin/createproduct/:id" component={CreateProduct}/>
+            <Route path="/users/register" component={RegisterUser}/>
             {/*<Route path="/help" component={DemonstruotiNavigacija}/>*/}
             <Route path="*" component={NoMatch}/>
             <Route component={ProductListClass}/>

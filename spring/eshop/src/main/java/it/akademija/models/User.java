@@ -16,6 +16,8 @@ public class User {
     private String lastName;
     @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
+    private String password;
 
 //    @OneToOne(cascade = {
 //            CascadeType.DETACH,
@@ -26,10 +28,11 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
     }
 
     public long getId() {
@@ -64,7 +67,15 @@ public class User {
         this.email = email;
     }
 
-//    public Cart getCart() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    //    public Cart getCart() {
 //        return cart;
 //    }
 //
