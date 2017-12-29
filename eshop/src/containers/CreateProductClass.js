@@ -49,18 +49,21 @@ class CreateProductClass extends Component {
         const productId = this.props.params.id;
         if (productId === 'new') {
             axios.post('/products/', product).then(response => {
-                console.log(response);
-            }).catch(error => {
-                console.log('Error = ' + error)
-            })
-        } else {
-            axios.put('/products/' + productId, product).then(response => {
                 console.log(response)
             }).catch(error => {
                 console.log('Error = ' + error)
-            })
-        }
-        hashHistory.replace('/admin')
+            }).then(() => {
+                hashHistory.replace('/admin')})
+        } else {
+            axios.put('/products/' + productId, product).then(response => {
+                console.log(response)
+                })
+            .catch(error => {
+                console.log('Error = ' + error)
+            }).then(() => {
+                hashHistory.replace('/admin')
+        })}
+
     };
 
     componentDidMount() {
@@ -75,7 +78,7 @@ class CreateProductClass extends Component {
 
     listProducts = () => this.props.router.push('products');
     adminProducts = () => this.props.router.push('admin');
-    registerUser= () => this.props.router.push('users/register');
+    registerUser = () => this.props.router.push('users/register');
     cancelCreateProduct = () => hashHistory.goBack();
 
     render() {

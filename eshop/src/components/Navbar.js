@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
+import './Navbar.css'
 
 const navbar = (props) => {
     return (
@@ -20,7 +21,7 @@ const navbar = (props) => {
                             <input type="text" className="form-control" placeholder="Username" name="search"/>
                             <input type="text" className="form-control" placeholder="Password" name="search"/>
                         </div>
-                        <button type="submit" className="btn btn-default">Login</button>
+                        <button onClick={props.login} className="btn btn-default">Login</button>
                         <button onClick={props.register} className="btn btn-default">Register</button>
                     </form>
                 </div>

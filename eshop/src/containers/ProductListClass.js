@@ -8,6 +8,8 @@ import ProductCartSum from '../components/Filter/ProductCartSum'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 import phone from '../assets/phones.jpg'
+import Modal from '../components/UserRegister/Modal/Modal'
+import Aux from '../hoc/Aux'
 
 class ProductListClass extends Component {
 
@@ -32,34 +34,38 @@ class ProductListClass extends Component {
             // {id: 1, title: 'Phone', description: 'new phone', price: 3, image: phone},
             // {id: 2, title: 'iPhone', description: 'new phone', price: 6, image: phone},
             // {id: 3, title: 'Samsung', description: 'old phone', price: 5, image: phone},
-        ]
+        ],
+        loginNow: false
     };
 
-    // deleteProduct = (index) => {
-    //     const newProducts = [...this.state.productList]; // Creates a new array of persons by copying the persons array.
-    //     newProducts.splice(index, 1); // Remove elements: starting at personIndex, 1 = total number of elements to remove.
-    //     this.setState({
-    //         productList: newProducts // Re-assign (in classes state) persons array after deletion.
-    //     })
+    loginButton = () => {
+      this.setState({loginNow: !this.state.loginNow})
+    };
+
+    // titlePrice = (index) => {
+    //     const product = this.state.productList[index];
+    //     console.log(product.title, product.price, product.id, product.index)
     // };
-
-    titlePrice = (index) => {
-        const product = this.state.productList[index];
-        console.log(product.title, product.price, product.id, product.index)
-    };
-
-    titles = () => {
-        const titleName = this.state.productList.reduce((sum, amTitle) => {
-            return sum + ', ' + amTitle.title;
-        });
-        console.log(titleName)
-    };
-
-    ifSamsung = () => {
-        const samsungPhones = this.state.productList;
-        samsungPhones.filter(phone => phone.title === 'Samsung').map(phone => phone.description);
-        console.log(samsungPhones)
-    };
+    //
+    // titles = () => {
+    //     const titleName = this.state.productList.reduce((sum, amTitle) => {
+    //         return sum + ', ' + amTitle.title;
+    //     });
+    //     console.log(titleName)
+    // };
+    //
+    // ifSamsung = () => {
+    //     const samsungPhones = this.state.productList;
+    //     samsungPhones.filter(phone => phone.title === 'Samsung').map(phone => phone.description);
+    //     console.log(samsungPhones)
+    // };
+    //
+    // filterByPrice = () => {
+    //     const expensiveProductsNames = this.state.productList;
+    //     const filtered = expensiveProductsNames.filter(product => product.price > 100)
+    //         .map(product => product.title).reduce((titles, title) => titles + ' ' + title);
+    //     console.log("Titles: ", filtered)
+    // };
 
     adminProducts = () => this.props.router.push('admin');
     listProducts = () => this.props.router.push('products');
@@ -67,13 +73,6 @@ class ProductListClass extends Component {
 
     productDetails = (index) => {
         this.props.router.push('products/' + this.state.productList[index].id);
-    };
-
-    filterByPrice = () => {
-        const expensiveProductsNames = this.state.productList;
-        const filtered = expensiveProductsNames.filter(product => product.price > 100)
-            .map(product => product.title).reduce((titles, title) => titles + ' ' + title);
-        console.log("Titles: ", filtered)
     };
 
     componentDidMount() {
@@ -95,11 +94,13 @@ class ProductListClass extends Component {
     render() {
 
         return (
-            <div>
+            <Aux>
+                <Modal show={this.state.loginNow} hide={this.loginButton}/>
                 <Navbar
                     admin={this.adminProducts}
                     home={this.listProducts}
                     register={this.registerUser}
+                    login={this.loginButton}
                 />
                 <ProductList
                     productList={this.state.productList}
@@ -120,7 +121,7 @@ class ProductListClass extends Component {
                 {/*productList={this.state.productList}*/}
                 {/*/>*/}
                 {/*<button onClick={this.filterByPrice}>Filter</button>*/}
-            </div>
+            </Aux>
         );
     }
 }
