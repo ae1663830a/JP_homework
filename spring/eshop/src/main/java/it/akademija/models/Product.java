@@ -17,7 +17,7 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PRODUCT_ID")
     private long id;
-//    @NaturalId
+    //    @NaturalId
     @Column(name = "TITLE")
     private String title;
     @Column(name = "PRICE")
@@ -33,6 +33,15 @@ public class Product implements Serializable {
 //    @JsonIgnore
 //    private List<Cart> carts;
 
+
+    @ManyToMany
+    @JoinTable(
+            name = "cart",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    @JsonIgnore
+    private List<User> userList;
 
     public Product() {
     }
@@ -57,6 +66,15 @@ public class Product implements Serializable {
 //    public void setCarts(List<Cart> carts) {
 //        this.carts = carts;
 //    }
+
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
     public long getId() {
         return id;
