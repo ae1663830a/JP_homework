@@ -5,10 +5,7 @@ import it.akademija.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -22,15 +19,15 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        userRepository.save(user);
+        userRepository.saveAndFlush(user);
         return user;
     }
 
-    public User getUser(@PathVariable final long id) {
+    public User getUser(Long id) {
         return userRepository.findOne(id);
     }
 
-    public User updateUser(@PathVariable long id, @RequestBody User user) {
+    public User updateUser(Long id, User user) {
         User oldUser = userRepository.findOne(id);
         if (oldUser == null) {
             throw new NullPointerException();
@@ -39,7 +36,19 @@ public class UserService {
         return userRepository.save(oldUser);
     }
 
-    public void deleteUser(@PathVariable long id) {
+    public void deleteUser(Long id) {
         userRepository.delete(userRepository.findOne(id));
     }
+
+//    public User findUserByEmail(String email) {
+//        return userRepository.findUserByEmail(email);
+//    }
+//
+//    public void deleteUserByEmail(String email) {
+//        userRepository.deleteUserByEmail(email);
+//    }
+//
+//    public List<User> findUserByEmailContaining(String partOfEmail) {
+//        return userRepository.findUserByEmailContaining(partOfEmail);
+//    }
 }

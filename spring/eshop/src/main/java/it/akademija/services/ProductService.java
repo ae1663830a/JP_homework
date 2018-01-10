@@ -6,7 +6,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,11 +23,11 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Product getById(long id) {
+    public Product getById(Long id) {
         return productRepository.findOne(id);
     }
 
-    public Product update(long id, Product product) {
+    public Product update(Long id, Product product) {
         Product oldProduct = productRepository.findOne(id);
         if (oldProduct == null) {
             throw new NullPointerException();
@@ -37,7 +36,7 @@ public class ProductService {
         return productRepository.save(oldProduct);
     }
 
-    public void delete(long id) {
+    public void delete(Long id) {
         productRepository.delete(productRepository.findOne(id));
     }
 }

@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "product")
@@ -15,72 +14,36 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PRODUCT_ID")
-    private long id;
+    @Column(name = "product_id")
+    private Long id;
     //    @NaturalId
-    @Column(name = "TITLE")
+    @Column(nullable = false)
     private String title;
-    @Column(name = "PRICE")
+    @Column(nullable = false)
     private double price;
-    @Column(name = "DESCRIPTION")
     private String description;
-    @Column(name = "IMAGE")
     private String image;
-    @Column(name = "QUANTITY")
+    @Column(nullable = false)
     private int quantity;
-
-//    @ManyToMany(mappedBy = "products")
-//    @JsonIgnore
-//    private List<Cart> carts;
 
 
     @ManyToMany
     @JoinTable(
-            name = "cart",
+            name = "cart_products",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "cart_id")
     )
     @JsonIgnore
-    private List<User> userList;
+    private List<Cart> carts = new ArrayList<>();
 
     public Product() {
     }
 
-    public Product(String title, double price) {
-        this.title = title;
-        this.price = price;
-    }
-
-    public Product(String title, double price, String description, String image, int quantity) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.image = image;
-        this.quantity = quantity;
-    }
-//
-//    public List<Cart> getCarts() {
-//        return carts;
-//    }
-//
-//    public void setCarts(List<Cart> carts) {
-//        this.carts = carts;
-//    }
-
-
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -122,6 +85,14 @@ public class Product implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 }
 
