@@ -3,8 +3,7 @@ package it.akademija.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "cart")
@@ -22,7 +21,7 @@ public class Cart {
     @JoinTable(name = "cart_products",
     joinColumns = @JoinColumn(name = "cart_id"),
     inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> products = new ArrayList<>();
+    private Collection<Product> products = new LinkedHashSet<>();
 
     public Cart() {
     }
@@ -43,11 +42,15 @@ public class Cart {
         this.user = user;
     }
 
-    public List<Product> getProductList() {
+    public Collection<Product> getProductList() {
         return products;
     }
 
     public void setProductList(List<Product> productList) {
         this.products = productList;
+    }
+
+    public void addProduct(Product product){
+        products.add(product);
     }
 }

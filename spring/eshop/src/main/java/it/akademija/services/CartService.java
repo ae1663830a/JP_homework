@@ -7,6 +7,7 @@ import it.akademija.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -24,7 +25,7 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public Cart findOne(long id) {
+    public Cart findOne(Long id) {
         if (id < 0) {
             throw new RuntimeException();
         }
@@ -36,7 +37,7 @@ public class CartService {
     }
 
 
-    public List<Product> getProducts(long cart_id) {
+    public Collection<Product> getProducts(Long cart_id) {
         Cart cart = cartRepository.findOne(cart_id);
         return cart.getProductList();
     }
@@ -46,24 +47,14 @@ public class CartService {
     }
 
 
-    public void addProduct(long product_id, long cart_id) {
+    public void addProduct(Long product_id, Long cart_id) {
 
-        Cart cart = cartRepository.findOne(cart_id);
-
-        if (cart == null) {
-            throw new NullPointerException();
-        }
-        cart.getProductList().add(productRepository.findOne(product_id));
-
-    }
-
-    public void addToCart(long cart_id, long product_id) {
         Cart cart = cartRepository.findOne(cart_id);
         Product product = productRepository.findOne(product_id);
         if (cart == null || product == null) {
             throw new NullPointerException();
         }
-        cart.getProductList().add(product);
-
+        cart.addProduct(product);
     }
+
 }

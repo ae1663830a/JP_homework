@@ -21,6 +21,7 @@ public class UserController {
 
     @ApiOperation(value = "Get users", notes = "Returns users")
     @GetMapping(value = "users")
+    @ResponseStatus(HttpStatus.FOUND)
     public List<User> userList() {
         return userService.getUsers();
     }
@@ -34,6 +35,7 @@ public class UserController {
 
     @ApiOperation(value = "Find user", notes = "Finds user by id")
     @GetMapping(value = "users/{id}")
+    @ResponseStatus(HttpStatus.FOUND)
     public User getUserById(@PathVariable final Long id) {
         return userService.getUser(id);
     }
